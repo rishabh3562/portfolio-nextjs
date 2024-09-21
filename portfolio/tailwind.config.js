@@ -37,7 +37,11 @@ module.exports = {
       },
       gridTemplateColumns: {
         '12': 'repeat(12, minmax(0, 1fr))'
-      }
+      },
+      fontFamily: {
+        breathney: ['Breathney'],
+       
+      },
     },
   },
   plugins: [],

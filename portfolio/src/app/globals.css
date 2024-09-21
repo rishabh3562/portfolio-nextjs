@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Breathney';
+  src: url('./fonts/Breathney Demo.ttf');
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,6 +18,8 @@
   --text-dark-red: #A04747;
   --text-secondary: #444444;
   --text-tertiary: #666666;
+  --font-custom: @import url('./fonts/Breathney Demo.ttf');;
+  --font-breathney: @import url('./fonts/Breathney Demo.ttf');;
 }
 
 @media (prefers-color-scheme: dark) {
