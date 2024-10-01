@@ -3,29 +3,38 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Breathney';
-  src: url('./fonts/Breathney Demo.ttf');
+  font-family: "Breathney";
+  src: url("./fonts/Breathney Demo.ttf");
 }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   /* --grid-background: #15100d; */
   --grid-background: #343131;
   /* --grid-blocks-background: #D5C6B4; */
-  --grid-blocks-background: #D8A25E;
-  --text-dark-yellow: #D8A25E;
-  --text-light-yellow: #EEDF7A;
-  --text-dark-red: #A04747;
+  --grid-blocks-background: #d8a25e;
+  --text-dark-yellow: #d8a25e;
+  --text-light-yellow: #eedf7a;
+  --text-dark-red: #a04747;
   --text-secondary: #444444;
   --text-tertiary: #666666;
-  --font-custom: @import url('./fonts/Breathney Demo.ttf');
-  --font-breathney: @import url('./fonts/Breathney Demo.ttf');
-  --primary: #2B2D42;
-  --secondary: #8D99AE;
-  --accent: #EF233C;
-  --lightBackground: #EDF2F4;
-  --lightText: #EDF2F4;
-  --darkText: #2B2D42;
+  --font-custom: @import url("./fonts/Breathney Demo.ttf");
+  --font-breathney: @import url("./fonts/Breathney Demo.ttf");
+  --primary: #2b2d42;
+  --secondary: #8d99ae;
+  --accent: #ef233c;
+  --lightBackground: #edf2f4;
+  --lightText: #edf2f4;
+  --darkText: #2b2d42;
+
+  /* // New custom colors */
+  --slate-dark: #121212; /* // Dark background */
+  --slate-light: #1c1c1c; /* // Lighter background */
+  --beige: #e6ddd1; /* // Beige text background */
+  --blue-border: #4a90e2; /* // Blue border color */
+  --green-border: #2ecc71; /* // Green border color */
+  --red-border: #e74c3c; /* // Red border color */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,6 +49,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 * {
   margin: 0;
   padding: 0;

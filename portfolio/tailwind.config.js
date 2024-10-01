@@ -26,7 +26,13 @@ module.exports = {
         darkText: "var(--darkText)",
         primaryBackground: "var(--primaryBackground)",
         secondaryBackground: "var(--secondaryBackground)",
-
+        // New custom colors
+        slateDark: "#121212",      // Dark background
+        slateLight: "#1c1c1c",     // Lighter background
+        beige: "#e6ddd1",          // Beige text background
+        blueBorder: "#4A90E2",     // Blue border color
+        greenBorder: "#2ECC71",    // Green border color
+        redBorder: "#E74C3C",      // Red border color
       },
       keyframes: {
         fadeIn: {
@@ -50,7 +56,6 @@ module.exports = {
       },
       fontFamily: {
         breathney: ['Breathney'],
-
       },
     },
   },
