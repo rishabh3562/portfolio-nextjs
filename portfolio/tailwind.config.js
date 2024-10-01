@@ -17,6 +17,16 @@ module.exports = {
         textDarkRed: "var(--text-dark-red)",
         textSecondary: "var(--text-secondary)",
         textTertiary: "var(--text-tertiary)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        accent: "var(--accent)",
+        font: "var(--font)",
+        lightBackground: "var(--lightBackground)",
+        lightText: "var(--lightText)",
+        darkText: "var(--darkText)",
+        primaryBackground: "var(--primaryBackground)",
+        secondaryBackground: "var(--secondaryBackground)",
+
       },
       keyframes: {
         fadeIn: {
@@ -40,7 +50,7 @@ module.exports = {
       },
       fontFamily: {
         breathney: ['Breathney'],
-       
+
       },
     },
   },
