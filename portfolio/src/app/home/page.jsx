@@ -32,7 +32,7 @@ const Page = () => {
         {/* Main Content: Left & Image Section */}
         <div className="grid grid-cols-8 col-span-8 row-span-4 gap-4">
           {/* Left Section */}
-          <div className="col-span-5 bg-beige p-4 rounded-lg shadow-md">
+          <div className="col-span-5 bg-gridBlocksBackground p-4 rounded-lg shadow-md">
             <UpperLeftSection />
           </div>
 
@@ -59,7 +59,7 @@ const Page = () => {
         <div className="col-span-4 row-span-3 bg-gridBlocksBackground p-4 rounded-lg shadow-md">
           <BottomLeftSection />
         </div>
-        <div className="col-span-4 row-span-3 bg-gridBlocksBackground p-4 rounded-lg shadow-md">
+        <div className="col-span-4 row-span-3 bg-[#3E3D38] p-4 rounded-lg shadow-md">
           <BottomRightSection />
         </div>
         <div className="col-span-4 row-span-1 bg-gridBlocksBackground p-4 rounded-lg shadow-md">

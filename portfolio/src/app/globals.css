@@ -23,7 +23,7 @@
   --text-tertiary: #666666;
   --font-custom: @import url("./fonts/Breathney Demo.ttf");
   --font-breathney: @import url("./fonts/Breathney Demo.ttf");
-  --primary: #2b2d42;
+  --primary: #1E201E;
   --secondary: #8d99ae;
   --accent: #ef233c;
   --lightBackground: #edf2f4;

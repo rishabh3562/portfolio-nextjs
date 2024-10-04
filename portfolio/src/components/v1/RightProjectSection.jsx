@@ -7,11 +7,11 @@ import {
   FaTwitter,
   FaExternalLinkAlt,
 } from "react-icons/fa";
-
+import projectimage from "@/assets/bharat_chauhan_brown.jpg";
 const ProjectCard = () => {
   return (
     <div className="flex justify-between items-center gap-2 p-4 rounded-lg bg-gridBlocksBackground shadow-md hover:bg-gray-800 transition duration-200">
-      <div className="text-textLightYellow font-semibold">CodeNote.ai</div>
+      <div className="text-primary font-semibold">CodeNote.ai</div>
       <div className="icons flex gap-2 items-center">
         <FaGithub className="hover:cursor-pointer text-white text-xl" />
         <FaExternalLinkAlt className="hover:cursor-pointer text-white text-xl" />
@@ -25,7 +25,7 @@ const ProjectCard = () => {
 
 const Divider = () => {
   return (
-    <div className="text-textLightYellow">
+    <div className="text-primary">
       <hr className="border-textSecondary border-2 rounded-full" />
     </div>
   );
@@ -33,11 +33,11 @@ const Divider = () => {
 
 const RightProjectSection = () => {
   return (
-    <div className="text-textLightYellow">
+    <div className="text-primary">
       <h2 className="text-xl font-bold mb-4">My Projects</h2>
       <div className="flex justify-center items-center mb-4">
         {/* Image collage or any other content can go here */}
-        image collage
+        <Image src={projectimage}/>
       </div>
       <ProjectCard />
       <Divider />

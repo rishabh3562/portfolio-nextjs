@@ -11,7 +11,7 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         gridBackground: "var(--grid-background)",
-        gridBlocksBackground: "#1C1C1C",
+        gridBlocksBackground: "#D0BCA0",
         gridBlocksBackground2: "#e6ddd1",
         textDarkYellow: "var(--text-dark-yellow)",
         textLightYellow: "var(--text-light-yellow)",
@@ -58,6 +58,9 @@ module.exports = {
       fontFamily: {
         breathney: ['Breathney'],
       },
+      screens: {
+        'xs': '320px'
+      }
     },
   },
   plugins: [],
