@@ -6,7 +6,7 @@ const IconCard = ({ icon, href, text }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
       <div className="flex items-center justify-center">
-        <p className="text-textDarkRed font-bold text-xl mr-4 items-baseline">
+        <p className="text-beige font-bold text-xl mr-4 items-baseline">
             {text}
             </p>
         <p className="text-white font-bold text-2xl items-baseline">

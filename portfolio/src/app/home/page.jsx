@@ -5,8 +5,8 @@ import UpperLeftSection from "@/components/v1/UpperLeftSection";
 import SocialsSection from "@/components/v1/SocialsSection";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
-import MobileImage from "@/assets/ecell1.jpg";
-import tableImage from "@/assets/ecell1.jpg";
+import MobileImage from "@/assets/ecell2.jpg";
+import tableImage from "@/assets/ecell2.jpg";
 import BottomLeftSection from "@/components/v1/BottomLeftSection";
 import BottomRightSection from "@/components/v1/BottomRightSection";
 
@@ -20,11 +20,11 @@ const Page = () => {
   const imageSrc = isMobile ? MobileImage : tableImage;
 
   return (
-    <div className="min-h-screen h-screen bg-gridBackground text-white p-4 overflow-hidden">
+    <div className="min-h-screen h-screen bg-[#151515] text-white p-4 overflow-hidden">
       <div className="grid grid-cols-12 grid-rows-8 gap-4 h-full">
         {/* Top Navbar */}
-        <div className="col-span-12 row-span-1 bg-gridBlocksBackground p-4 rounded-lg shadow-md">
-          <h1 className="text-2xl font-breathney md:text-4xl font-bold text-textLightYellow">
+        <div className="col-span-12 row-span-1 flex items-center bg-gridBlocksBackground p-4 rounded-lg shadow-md">
+          <h1 className="text-2xl font-breathney md:text-4xl font-bold text-[#9B8D78]">
             Rishabh Dubey
           </h1>
         </div>
@@ -32,7 +32,7 @@ const Page = () => {
         {/* Main Content: Left & Image Section */}
         <div className="grid grid-cols-8 col-span-8 row-span-4 gap-4">
           {/* Left Section */}
-          <div className="col-span-5 bg-gridBlocksBackground p-4 rounded-lg shadow-md">
+          <div className="col-span-5 bg-beige p-4 rounded-lg shadow-md">
             <UpperLeftSection />
           </div>
 

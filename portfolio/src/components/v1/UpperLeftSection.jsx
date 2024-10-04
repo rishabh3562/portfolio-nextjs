@@ -10,15 +10,13 @@ const UpperLeftSection = () => {
   return (
     <>
       <div
-        className="text-4xl 
-       text-textDarkRed
-       font-bold"
+        className="text-3xl md:text-4xl lg:text-5xl text-slateDark font-light  leading-tight"
       >
         Creating Web Solutions Tailored for Your Needs
       </div>
 
-      <p></p>
-      <p>{cloudAndWebtext}</p>
+    
+      <p className="text-slateLight font-light">{cloudAndWebtext}</p>
     </>
   );
 };

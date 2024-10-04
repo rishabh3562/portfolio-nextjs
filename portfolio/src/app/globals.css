@@ -13,7 +13,9 @@
   /* --grid-background: #15100d; */
   --grid-background: #343131;
   /* --grid-blocks-background: #D5C6B4; */
+  /* --grid-blocks-background: #d8a25e; */
   --grid-blocks-background: #d8a25e;
+
   --text-dark-yellow: #d8a25e;
   --text-light-yellow: #eedf7a;
   --text-dark-red: #a04747;
@@ -27,6 +29,7 @@
   --lightBackground: #edf2f4;
   --lightText: #edf2f4;
   --darkText: #2b2d42;
+--muted-gold:'#9B8D78';
 
   /* // New custom colors */
   --slate-dark: #121212; /* // Dark background */
