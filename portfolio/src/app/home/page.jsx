@@ -9,15 +9,18 @@ import MobileImage from "@/assets/ecell2.jpg";
 import tableImage from "@/assets/ecell2.jpg";
 import circleImage from "@/assets/circle_two.png"; // Correctly import the image
 import projectImage from "@/assets/bharat_chauhan_brown.jpg";
-import anotherCircleImage from '@/assets/another_circle_one.png'
-import BlackArrowImage from '@/assets/arrow_black_one.png'
-import WhiteArrowImage from '@/assets/arrow_white_one.png'
+import anotherCircleImage from "@/assets/another_circle_one.png";
+import BlackArrowImage from "@/assets/arrow_black_one.png";
+import WhiteArrowImage from "@/assets/arrow_white_one.png";
 import {
   FaGithub,
   FaLinkedin,
   FaTwitter,
   FaExternalLinkAlt,
+  FaTimes,
+  FaBars,
 } from "react-icons/fa";
+
 const MyComponent = () => {
   return (
     <>
@@ -40,11 +43,11 @@ const MyComponent = () => {
               <Link href="#">Contact</Link>
             </li>
             <label htmlFor="check" className="close-menu">
-              <i className="fas fa-times"></i>
+              <FaTimes />
             </label>
           </span>
           <label htmlFor="check" className="open-menu">
-            <i className="fas fa-bars"></i>
+            <FaBars />
           </label>
         </ul>
       </nav>
@@ -117,7 +120,7 @@ const MyComponent = () => {
                 href="https://github.com/username/OneStream"
                 target="_blank"
               >
-                <i className="fab fa-github"></i> GitHub
+                <FaGithub /> GitHub
               </Link>
               <Link href="your-target-page.html">
                 <div className="arrow-btn">
@@ -139,7 +142,7 @@ const MyComponent = () => {
               {" "}
               |{" "}
               <Link href="https://github.com/username/Unihub" target="_blank">
-                <i className="fab fa-github"></i> GitHub
+                <FaGithub /> GitHub
               </Link>
             </span>
           </p>
@@ -156,7 +159,7 @@ const MyComponent = () => {
               {" "}
               |{" "}
               <Link href="https://github.com/username/CodeNote" target="_blank">
-                <i className="fab fa-github"></i> GitHub
+                <FaGithub /> GitHub
               </Link>
             </span>
           </p>
@@ -205,23 +208,16 @@ const MyComponent = () => {
               href="https://www.linkedin.com/in/rishabh108/"
               target="_blank"
             >
-              LINKEDIN
+              <FaLinkedin /> LINKEDIN
             </Link>
           </p>
           <p>
             <Link href="https://github.com/rishabh3562" target="_blank">
-              GITHUB
+              <FaGithub /> GITHUB
             </Link>
           </p>
         </div>
       </div>
-
-      {/* JS for navbar hamburger (optional, consider using React state) */}
-      <script
-        src="https://kit.fontawesome.com/ae61999827.js"
-        crossOrigin="anonymous"
-      ></script>
-      <script src="/index.js"></script>
     </>
   );
 };
