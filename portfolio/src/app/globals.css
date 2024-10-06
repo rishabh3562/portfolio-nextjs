@@ -1,512 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ /* this one is the secondary font 
+ 
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+  /* this is a test font 
+
+
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  */
+
+
+@font-face {
+  font-family: "Breathney";
+  src: url("./fonts/Breathney Demo.ttf");
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* --grid-background: #15100d; */
+  --grid-background: #343131;
+  /* --grid-blocks-background: #D5C6B4; */
+  /* --grid-blocks-background: #d8a25e; */
+  --grid-blocks-background: #d8a25e;
+
+  --text-dark-yellow: #d8a25e;
+  --text-light-yellow: #eedf7a;
+  --text-dark-red: #a04747;
+  --text-secondary: #444444;
+  --text-tertiary: #666666;
+  --font-custom: @import url("./fonts/Breathney Demo.ttf");
+  --font-breathney: @import url("./fonts/Breathney Demo.ttf");
+  --primary: #1E201E;
+  --secondary: #8d99ae;
+  --accent: #ef233c;
+  --lightBackground: #edf2f4;
+  --lightText: #edf2f4;
+  --darkText: #2b2d42;
+--muted-gold:'#9B8D78';
+
+  /* // New custom colors */
+  --slate-dark: #121212; /* // Dark background */
+  --slate-light: #1c1c1c; /* // Lighter background */
+  --beige: #e6ddd1; /* // Beige text background */
+  --blue-border: #4a90e2; /* // Blue border color */
+  --green-border: #2ecc71; /* // Green border color */
+  --red-border: #e74c3c; /* // Red border color */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Arial black", sans-serif; */
 }
 
-:root{
---primaryColor: #D0BCA0;
---bgColor: #3E3D38;
---lightDark: #3C3D37;
---darkDark: #1E201E;
-}
-body{
-/* height: 100vh; */
-background-color: var(--darkDark);
-}
-
-a{
-  text-decoration: none;
-  color: var(--darkDark);
-}
-/* --------------------------------------- */
-/* Navbar Section */
-/* --------------------------------------- */
-.nav-bar {
-    /* width: 95%; */
-    height: 10vh;
-    margin: 10px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    position: relative;
-    background-color: var(--primaryColor);
-    padding: 12px 25px;
-  }
-  /* logo_text */
-  .logo a{
-    font-family: "Playfair Display", serif;
-    text-decoration: none;
-    color: var(--darkDark);
-    font-size: 35px;
-    font-weight: 600;
-
-  }
-.nav-bar .logo span{
-  font-style: italic;
-  font-weight: 10;
-  margin-left: 2px;
-}
-
-  .menu {display: flex;}
-  .menu li {padding-left: 30px;}
-  /* list links */
-  .menu li a {
-    font-family: "Poppins", sans-serif;
-    font-weight: 405;
-    font-size: 15px;
-    font-style: normal;
-    /* haha  */
-
-    display: inline-block;
-    text-decoration: none;
-    color: var(--lightDark);
-    text-align: center;
-    transition: 0.15s ease-in-out;
-    position: relative;
-    text-transform: uppercase;
-  }
-  .menu li a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--darkDark);
-    transition: 0.15s ease-in-out;
-  }
-  .menu li a:hover:after {width: 100%;}
-  .open-menu , .close-menu {
-    position: absolute;
-    color: var(--darkDark);
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: none;
-  }
-  .open-menu {
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-  }
-  .close-menu {
-    top: 20px;
-    right: 20px;
-  }
-  #check {display: none;}
-  @media(max-width: 610px){
-    .menu {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 100;
-        background-color: var(--primaryColor);
-        transition: all 0.2s ease-in-out;
-    }
-    .menu li {margin-top: 40px;}
-    .menu li a {padding: 10px;}
-    .open-menu , .close-menu {display: block;}
-    #check:checked ~ .menu {right: 0;}
-  }
-/* --------------------------------------- */
-/* Body Section */
-/* --------------------------------------- */
-
-/* --------------------------------------- */
-/* slogan section layout */
-/* --------------------------------------- */
-
-.item{
-  background-color: var(--primaryColor);
-  border-radius: 10px;
-}
-
-.container{
-  margin: 0 10px 10px 10px;
-  /* min-height: 500px; */
-  height: 85vh;
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  grid-template-areas: 
-  "slogan       slogan      slogan      photo     photo     music     music"
-  "slogan       slogan      slogan      photo     photo     music     music"
-  "slogan       slogan      slogan      photo     photo     music     music"
-  "slogan       slogan      slogan      photo     photo     music     music"
-  "details      details     contact     contact   contact   music     music"
-  "details      details     contact     contact   contact   music     music"
-  "details      details     contact     contact   contact   social    social";
-}
-
-.item1{
-  grid-area: slogan;
-}
-.item2{
-  grid-area: photo;
-}
-.item3{
-  grid-area: music;
-}
-.item4{
-  grid-area: details;
-}
-.item5{
-  grid-area: contact;
-}
-.item6{
-  grid-area: social;
-}
-
-
-/* --------------------------------------- */
-/* slogan section elements */
-/* --------------------------------------- */
-
-
-/* --------------------------------------- */
-/* image div css */
-/* --------------------------------------- */
-
-.item2{
-  background-color: var(--bgColor);
-  text-align:center;
-  /* padding-right: 50px; */
-  width: 100%;
-  max-width: 500px;
-  position: relative;
-  overflow: hidden; 
-}
-.item2 img{
-  position: absolute;
-  bottom: 0;
-  width: auto;
-  height: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* --------------------------------------- */
-/* slogan div css */
-/* --------------------------------------- */
-
-.item1{
-  position: relative;
-}
-
-.main_slogan{
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 2rem;
-  line-height: 32px;
-
-
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  margin: 0 90px 50px 10px;
-}
-
-.item1 span{
-  font-family: "Playfair Display" "serif";
-  font-weight: lighter;
-  font-style: italic;
-}
-
-.item1 img{
-  position: absolute;
-  height: 110px;
-  right: 0;
-}
-
-
-/* --------------------------------------- */
-/* intro div css */
-/* --------------------------------------- */
-
-.item4{
-  position: relative;
-}
-
-.item4 p{
-  font-family: "Poppins", sans-serif;
-  font-weight: 405;
-  font-size: 12px;
-  font-style: normal;
-
-
-  position: absolute;
-  bottom: 0;
-  /* left: 10p; */
-  margin: 0 50px 30px 20px;
-}
-
-.item4 img{
-  height: 50px;
-  margin: 10px 0 0 10px;
-}
-
-/* --------------------------------------- */
-/* contact me div css */
-/* --------------------------------------- */
-
-.item5{
-  background-color: var(--bgColor);
-  position: relative;
-}
-
-.item5 .questions{
-  margin: 20px 0 0 20px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 405;
-  font-size: 13px;
-  font-style: normal;
-  color: var(--primaryColor);
-  line-height: 15px;
-}
-.item5 .contact_me{
-  font-family: "Bodoni Moda", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 50px;
-  color: var(--primaryColor);
-
-
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0;
-  margin: 20px 0 20px 20px;
-}
-
-.item5 span{
-  font-family: "Playfair Display" "serif";
-  font-weight: lighter;
-  font-style: italic;
-}
-
-.item5 img{
-  position: absolute;
-  height: 40px;
-  right: 0;
-  margin: 10px 10px 0 0;
-}
-
-/* --------------------------------------- */
-/* playlist div css */
-/* --------------------------------------- */
-
-.item3{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 30px;
-  /* margin-bottom: 50px; */
-}
-
-.item3 .title{
-  position: absolute;
-  margin: 20px 0 0 20px;
-  
-  font-family: "Bodoni Moda", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-size: 17px;
-  color: var(--darkDark);
-
-}
-
-.item3 .arrow{
-  position: absolute;
-  right: 0;
-  height: 5%;
-  margin: 23px 20px 0 0;
-}
-
-.item3 .bharat_chauhan_img{
-  /* height: 150px; */
-  width: 90%;
-  margin: 50px 0 0 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
-}
-
-.item3 .line{
-  height: 1px;
-  width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* margin-top: 20px; */
-  background-color: var(--lightDark);
-  border-style: none;
-  border-radius: 20px;
-}
-
-.item3 .music{
-  margin-left: 15px;
-
-  font-family: "Bodoni Moda", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-size: 17px;
-}
-
-
-/* --------------------------------------- */
-/* social media links div css */
-/* --------------------------------------- */
-
-.item6{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-}
-
-.item6 p{
-  font-family: "Poppins", sans-serif;
-  font-weight: 405;
-  font-size: 13px;
-  font-style: normal;
-  color: var(--darkDark);
-}
-
-/* .item6 p::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 5px;
-  background-color: var(--darkDark);
-  transition: 0.15s ease-in-out;
-} */
-
-head .icon_img{
-border-radius: 50px;}
-
-
-/* --------------------------------------- */
-/* --------------------------------------- */
-/* --------------------------------------- */
-/* grid responsiveness css */
-/* --------------------------------------- */
-/* --------------------------------------- */
-/* --------------------------------------- */
-
-
-
-/* --------------------------------------- */
-/* media query for tablet devices (920px) */
-/* --------------------------------------- */
-
-@media (max-width: 920px) {
-  .container {
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    grid-template-areas: 
-    "slogan       slogan      slogan      photo     photo     music     music"
-    "slogan       slogan      slogan      photo     photo     music     music"
-    "slogan       slogan      slogan      photo     photo     music     music"
-    "slogan       slogan      slogan      photo     photo     music     music"
-    "details      details     details     contact   contact   music     music"
-    "details      details     details     contact   contact   music     music"
-    "details      details     details     contact   contact   social    social";
-  }
-
-  .item5 .contact_me{
-    font-size: 40px;
-    line-height: 35px;
-  }
-
-  .item1 .main_slogan{
-    font-size: 25px;
-    line-height: 25px;
-    margin-bottom: 25px;
-  }
-
-  .item4 p{
-    margin-bottom: 15px;
-  }
-
-  .item6 p{
-    font-size: 11px;
-  }
-  }
-
-
-  
-/* --------------------------------------- */
-/* media query for mobile devices (480px) */
-/* --------------------------------------- */
-
-@media (max-width: 480px) {
-  .container {
-    width: 95vw;
-    height: 200vh;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    grid-template-areas: 
-    "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-    "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-    "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-    "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-    "photo    photo     photo     details   details   details   details"
-    "photo    photo     photo     details   details   details   details"
-    "photo    photo     photo     details   details   details   details"
-    "music    music     music     music     music     music     music"
-    "music    music     music     music     music     music     music"
-    "music    music     music     music     music     music     music"
-    "music    music     music     music     music     music     music"
-    "music    music     music     music     music     music     music"
-    "contact  contact   contact   contact   contact   contact   contact"
-    "contact  contact   contact   contact   contact   contact   contact"
-    "contact  contact   contact   contact   contact   contact   contact"
-    "social   social    social    social    social    social    social"
-    ;
-  }
-
-  .item4 p{
-    font-size: 10px;
-    margin-right: 15px;
-  }
-  .item1 .main_slogan{
-    font-size: 35px;
-    line-height: 30px;
-  }
-  
-  .nav-bar .logo a{
-    font-size: 30px;
-  }
-}
-
-
-
-
-
-/* /////////////////////////////////////////////////////////////////// */
-/* /////////////////////////////////////////////////////////////////// */
-/* 
-This is an portfolio project done by tilakgiri01@gmail.com
-The design for the portfolio was takes from instagram account:
-*/
-/* /////////////////////////////////////////////////////////////////// */
-/* /////////////////////////////////////////////////////////////////// */
