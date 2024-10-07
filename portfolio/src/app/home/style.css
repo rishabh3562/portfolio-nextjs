@@ -16,22 +16,22 @@ body {
   background-color: var(--darkDark);
 }
 
+.arrow-icon{
+  float: inline-end;
+}
 .arrow-btn:hover {
-  background-color: #45a049;
+float: inline-end;
 }
 .project-wrapper {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  border: 2px solid red;
+  gap: 1rem;
+  margin-left: 1rem;
+font-size: 1.5rem !important;
 }
 .project-link-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  border: 2px solid green;
+  float: inline-end;
+
+
 }
 .phone-block {
   display: none;
@@ -506,7 +506,7 @@ a {
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
-  font-size: 17px;
+  font-size: 1.2rem;
 }
 
 /* --------------------------------------- */

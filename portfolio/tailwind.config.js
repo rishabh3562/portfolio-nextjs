@@ -12,6 +12,10 @@ module.exports = {
         bgColor: '#3e3d38',
         lightDark: '#3c3d37',
         darkDark: '#1e201e',
+      },   fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
+        bodoni: ['Bodoni Moda', 'serif'],
       },
     },
   },
