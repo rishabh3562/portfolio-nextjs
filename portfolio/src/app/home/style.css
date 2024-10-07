@@ -215,13 +215,11 @@ a {
 }
 .main_slogan {
   @apply font-bold font-playfair not-italic text-[2rem] leading-8 absolute ml-2.5 mr-[90px] mt-0 mb-[50px] left-2.5 bottom-0;
-  
+
   font-optical-sizing: auto;
-  
 }
 .item1 span {
   @apply font-light font-playfair italic;
-
 }
 .item1 img {
   @apply absolute h-[110px] right-0;
@@ -235,7 +233,6 @@ a {
 }
 .item4 p {
   @apply font-[405] font-poppins text-sm not-italic absolute ml-5 mr-[50px] mt-0 mb-[30px] bottom-0;
-
 
   /* left: 10p; */
 }
@@ -254,13 +251,12 @@ a {
   font-family: "Poppins", sans-serif;
 }
 .item5 .contact_me {
-  @apply font-medium not-italic text-[50px] text-[color:var(--primaryColor)] absolute ml-5 mr-0 mb-0 my-5 bottom-0;
-  font-family: "Bodoni Moda", serif;
+  @apply font-medium font-bodoni not-italic text-[50px] text-[color:var(--primaryColor)] absolute ml-5 mr-0 mb-0 my-5 bottom-0;
   font-optical-sizing: auto;
 }
 .item5 span {
-  @apply font-[lighter] italic;
-  font-family: "Playfair Display" "serif";
+  @apply font-light italic font-playfair;
+ 
 }
 .item5 img .another_img {
   @apply absolute h-10 ml-0 mr-2.5 mt-2.5 mb-0 right-0;
@@ -275,8 +271,7 @@ a {
   /* margin-bottom: 50px; */
 }
 .item3 .title {
-  @apply absolute font-extrabold not-italic text-[17px] text-[color:var(--darkDark)] ml-5 mr-0 mt-5 mb-0;
-  font-family: "Bodoni Moda", serif;
+  @apply absolute font-extrabold font-bodoni not-italic text-[17px] text-[color:var(--darkDark)] ml-5 mr-0 mt-5 mb-0;
   font-optical-sizing: auto;
 }
 .item3 .arrow {
@@ -293,8 +288,7 @@ a {
   /* margin-top: 20px; */
 }
 .item3 .music {
-  @apply font-extrabold not-italic text-[1.2rem] ml-[15px];
-  font-family: "Bodoni Moda", serif;
+  @apply font-extrabold font-bodoni not-italic text-[1.2rem] ml-[15px];
   font-optical-sizing: auto;
 }
 
@@ -305,20 +299,10 @@ a {
   @apply flex flex-row justify-around items-center relative;
 }
 .item6 p {
-  @apply font-[405] text-[13px] not-italic text-[color:var(--darkDark)];
-  font-family: "Poppins", sans-serif;
+  @apply font-[405] font-poppins text-[13px] not-italic text-[color:var(--darkDark)];
 }
 
-/* .item6 p::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 5px;
-    background-color: var(--darkDark);
-    transition: 0.15s ease-in-out;
-  } */
+
 head .icon_img {
   @apply rounded-[50px];
 }
@@ -330,6 +314,7 @@ head .icon_img {
 /* --------------------------------------- */
 /* --------------------------------------- */
 /* --------------------------------------- */
+
 
 /* --------------------------------------- */
 /* media query for tablet devices (920px) */

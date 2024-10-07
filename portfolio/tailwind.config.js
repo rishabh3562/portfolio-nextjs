@@ -20,10 +20,10 @@ module.exports = {
         bodoni: ['Bodoni Moda', 'serif'],
         beathney: ['Breathney', 'serif'],
       }, screens: {
-    
+
         'xs': { 'min': '375px' },
         // => @media (min-width: 375px) { ... }
-      },gridTemplateColumns: {
+      }, gridTemplateColumns: {
         // Custom column definition for 16 equal columns
         '16': 'repeat(16, 1fr)',
       },
