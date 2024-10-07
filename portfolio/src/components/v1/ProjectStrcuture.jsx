@@ -14,26 +14,50 @@ import { CiMenuKebab } from "react-icons/ci";
 import Image from "next/image";
 import { GoLink } from "react-icons/go";
 import projectImage from "@/assets/bharat_chauhan_brown.jpg"; // Adjust paths if necessary
-
 import headerImage from "@/assets/bharat_chauhan_brown.jpg"; // Update with the correct path
 import flowImage from "@/assets/bharat_chauhan_brown.jpg";
-const urlData = {
-  portfolioUrl: "https://rishabhdubey108.vercel.app/home",
-  postLink: "https://rishabhdubey108.vercel.app/home/projects/onestream",
-  shareText: "Hey, I wanted to share something cool with you!",
-  websiteUrl: "https://rishabhdubey108.vercel.app/home",
-  githubUrl: "https://github.com/rishabhdubey108",
-  liveLink: "https://collaboration-tool.vercel.app/",
-};
 
-const SectionSeparator = () => <hr className="mt-2 mb-4 border-primaryColor opacity-65" />;
+const SectionSeparator = () => (
+  <hr className="mt-4 mb-4 border-primaryColor opacity-65" />
+);
 
 const handleCopy = (text) => {
   navigator.clipboard.writeText(text);
   alert("Link copied to clipboard!");
 };
 
-const handleShare = (platform, text) => {
+const FeatureList = ({ urlData }) => (
+  <ul>
+    {urlData.liveLink && (
+      <li
+        className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
+        onClick={() => handleCopy(urlData.websiteUrl)}
+      >
+        <FaCopy /> Copy Website Link
+      </li>
+    )}
+    <li
+      className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
+      onClick={() => handleShare("telegram", urlData.shareText)}
+    >
+      <FaTelegramPlane /> Share on Telegram
+    </li>
+    <li
+      className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
+      onClick={() => handleShare("whatsapp", urlData.shareText)}
+    >
+      <FaWhatsapp /> Send on WhatsApp
+    </li>
+    <li
+      className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
+      onClick={() => handleCopy(urlData.postLink)}
+    >
+      <GoLink /> Copy Post Link
+    </li>
+  </ul>
+);
+
+const handleShare = (platform, text, urlData) => {
   const shareMessage = Object.entries(urlData)
     .filter(([_, value]) => value)
     .map(([key, value]) => {
@@ -63,49 +87,18 @@ const handleShare = (platform, text) => {
   window.open(shareUrl, "_blank");
 };
 
-const FeatureList = () => (
-  <ul>
-    <li
-      className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-      onClick={() => handleCopy(urlData.websiteUrl)}
-    >
-      <FaCopy /> Copy Website Link
-    </li>
-    <li
-      className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-      onClick={() => handleShare("telegram", urlData.shareText)}
-    >
-      <FaTelegramPlane /> Share on Telegram
-    </li>
-    <li
-      className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-      onClick={() => handleShare("whatsapp", urlData.shareText)}
-    >
-      <FaWhatsapp /> Share on WhatsApp
-    </li>
-    <li
-      className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-      onClick={() => handleCopy(urlData.postLink)}
-    >
-      <GoLink /> Copy Post Link
-    </li>
-  </ul>
-);
-const Divider = () => <hr className="my-4 border-gray-600 opacity-50" />;
+const Divider = () => <hr className="my-6 border-gray-600 opacity-50" />;
 const DynamicSection = ({ title, children }) => (
   <>
-    <h2 className="text-2xl mt-12 font-semibold text-primaryColor font-poppins">
+    <h2 className="text-3xl mt-10 font-semibold text-primaryColor font-poppins">
       {title}
     </h2>
     <SectionSeparator />
-    <div className="ml-3">
-
-    {children}
-    </div>
+    <div className="ml-4">{children}</div>
   </>
 );
 
-const HeaderSection = ({ project }) => {
+const HeaderSection = ({ project, urlData }) => {
   const [like, setLike] = useState(false);
   const [likeCount, setLikeCount] = useState(674);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -120,57 +113,69 @@ const HeaderSection = ({ project }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb-6">
       <Image
         src={projectImage}
         alt="Project Header"
-        className="w-full h-60 rounded-xl mb-4"
+        className="w-full h-72 rounded-xl mb-4 object-cover"
       />
-      <h1 className="text-4xl font-bold mb-4 text-primaryColor">
+      <h1 className="text-4xl font-bold mb-2 text-primaryColor">
         {project.title}
       </h1>
-      <p className="text-primaryColor">{project.description}</p>
-      <div className="flex flex-wrap gap-2 my-2">
+      <p className="text-lg text-primaryColor">{project.description}</p>
+      <div className="flex flex-wrap gap-2 my-3">
         {project.tags.map((tag, index) => (
           <span
             key={index}
-            className="bg-primaryColor text-darkDark font-semibold px-2 py-1 rounded-md"
+            className="bg-primaryColor text-darkDark font-semibold px-3 py-1 rounded-md text-sm"
           >
             {tag}
           </span>
         ))}
       </div>
       <Divider />
-      <div className="flex flex-wrap gap-2 my-2 justify-between items-center">
+      <div className="flex flex-wrap gap-3 my-3 justify-between items-center">
         <div className="ml-2 flex gap-2 items-center">
           {like ? (
             <AiFillLike
               onClick={toggleLike}
-              className="cursor-pointer"
+              className="cursor-pointer text-primaryColor"
               title="Unlike"
             />
           ) : (
             <AiOutlineLike
               onClick={toggleLike}
-              className="cursor-pointer"
+              className="cursor-pointer text-primaryColor transition-all ease-in"
               title="Like"
             />
           )}
-          <span>{likeCount}</span>
+          <span className="text-lg text-primaryColor">{likeCount}</span>
         </div>
         <div className="relative">
           <div className="flex gap-2 items-center">
-            <FaGithub className="cursor-pointer" title="GitHub" />
-            <FaExternalLinkAlt className="cursor-pointer" title="Website" />
+            {urlData.githubUrl && (
+              <FaGithub
+                onClick={() => window.open(urlData.githubUrl, "_blank")}
+                className="cursor-pointer text-primaryColor transition-all ease-in"
+                title="GitHub"
+              />
+            )}
+            {urlData.liveLink && (
+              <FaExternalLinkAlt
+                onClick={() => window.open(urlData.liveLink, "_blank")}
+                className="cursor-pointer text-primaryColor transition-all ease-in"
+                title="Website"
+              />
+            )}
             <CiMenuKebab
               onClick={toggleDropdown}
-              className="cursor-pointer"
+              className="cursor-pointer text-primaryColor transition-all ease-in"
               title="More Options"
             />
           </div>
           {isDropdownVisible && (
-            <div className="absolute right-0 mt-2 w-48 bg-bgColor rounded-lg shadow-lg">
-              <FeatureList />
+            <div className="absolute right-0 mt-2 w-52 bg-bgColor rounded-lg shadow-lg z-10">
+              <FeatureList urlData={urlData} />
             </div>
           )}
         </div>
@@ -180,172 +185,96 @@ const HeaderSection = ({ project }) => {
   );
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, urlData }) => {
   return (
     <div className="bg-darkDark text-white">
-      <div className="mx-auto p-4 md:w-3/4 lg:w-2/3 xl:w-1/2 text-white">
-        <HeaderSection project={project} />
+      <div className="mx-auto p-6 md:w-3/4 lg:w-2/3 xl:w-1/2 text-white">
+        <HeaderSection project={project} urlData={urlData} />
         {project.introduction && (
-          <>
-            <DynamicSection title="Introduction">
-              <p>{project.introduction}</p>
-              <p>
-                We are excited to introduce a seamless and intuitive way for you
-                to unleash your creativity and communicate your ideas visually.{" "}
-                {project.description}
-              </p>
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
+          <DynamicSection title="Introduction">
+            <p className="text-lg">{project.introduction}</p>
+            <p className="text-lg">
+              We are excited to introduce a seamless and intuitive way for you
+              to unleash your creativity and communicate your ideas visually.{" "}
+              {project.description}
+            </p>
+          </DynamicSection>
         )}
 
         {project.techStack && project.techStack.length > 0 && (
-          <>
-            <DynamicSection title="Tech Stack">
-              <ul className="list-disc list-inside">
-                {project.techStack.map((tech, index) => (
-                  <li key={index}>
-                    <a
-                      href={tech.link}
-                      className="text-blue-600 hover:underline"
-                    >
-                      {tech.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
+          <DynamicSection title="Tech Stack">
+            <ul className="list-disc list-inside">
+              {project.techStack.map((tech, index) => (
+                <li key={index} className="text-lg">
+                  <a href={tech.link} className="text-blue-600 hover:underline">
+                    {tech.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </DynamicSection>
         )}
 
         {project.features && project.features.length > 0 && (
-          <>
-            <DynamicSection title="Features">
-              <ul className="list-disc list-inside">
-                {project.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
+          <DynamicSection title="Features">
+            <ul className="list-disc list-inside">
+              {project.features.map((feature, index) => (
+                <li key={index} className="text-lg">
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </DynamicSection>
         )}
 
         {project.flowImage && (
-          <>
-            <DynamicSection title="The general flow of the application">
-              <Image
-                src={flowImage}
-                alt="Application Flow"
-                className="w-full h-auto mb-4"
-              />
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
+          <DynamicSection title="The general flow of the application">
+            <Image
+              src={flowImage}
+              alt="Application Flow"
+              className="w-full h-auto mb-4"
+            />
+          </DynamicSection>
         )}
 
         {project.challenges && project.challenges.length > 0 && (
-          <>
-            <DynamicSection title="Challenges we faced">
-              <ul className="list-disc list-inside">
-                {project.challenges.map((challenge, index) => (
-                  <li key={index}>{challenge}</li>
-                ))}
-              </ul>
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
+          <DynamicSection title="Challenges we faced">
+            <ul className="list-disc list-inside">
+              {project.challenges.map((challenge, index) => (
+                <li key={index} className="text-lg">
+                  {challenge}
+                </li>
+              ))}
+            </ul>
+          </DynamicSection>
         )}
 
         {project.githubRepo && project.websiteLink && (
-          <>
-            <DynamicSection title="Public code repo">
-              <ul className="list-disc list-inside">
-                <li>
-                  GitHub -{" "}
+          <DynamicSection title="Links">
+            <ul className="list-disc list-inside">
+              {project.githubRepo && (
+                <li className="text-lg">
                   <a
                     href={project.githubRepo}
                     className="text-blue-600 hover:underline"
                   >
-                    {project.githubRepo}
+                    GitHub Repository
                   </a>
                 </li>
-                <li>
-                  Website link -{" "}
+              )}
+              {project.websiteLink && (
+                <li className="text-lg">
                   <a
                     href={project.websiteLink}
                     className="text-blue-600 hover:underline"
                   >
-                    {project.websiteLink}
+                    Live Website
                   </a>
                 </li>
-              </ul>
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
+              )}
+            </ul>
+          </DynamicSection>
         )}
-
-        {project.videoDemo && (
-          <>
-            <DynamicSection title="Video demo">
-              <p>
-                Here's a speedrun:{" "}
-                <a
-                  href={project.videoDemo}
-                  className="text-blue-600 hover:underline"
-                >
-                  {project.videoDemo}
-                </a>
-              </p>
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
-        )}
-
-        {project.conclusion && (
-          <>
-            <DynamicSection title="Conclusion">
-              <p>{project.conclusion}</p>
-            </DynamicSection>
-            {/* <SectionSeparator /> */}
-          </>
-        )}
-
-        {/* Additional styling for the post header */}
-        <div className="mt-8">
-          <h2 className="text-3xl font-bold text-primaryColor mb-4">
-            9 Naming Tricks Every Developer Should Know to Avoid Headache
-          </h2>
-          <p className="text-gray-400">
-            Published in JavaScript in Plain English - 4 min read
-          </p>
-        </div>
-
-        {/* Highlighted text section */}
-        <div className="mt-6 bg-gray-800 p-4 rounded-lg">
-          <p className="text-lg">
-            Code with poor naming is difficult to read, and hard-to-read code is
-            like a ticking time bomb. Sooner or later, you’ll have to revisit it
-            to fix bugs or add new features. When that moment arrives, you’ll
-            likely face three frustrating scenarios:
-          </p>
-          <ol className="list-decimal list-inside mt-2">
-            <li>
-              Refactor everything: This increases the scope and complexity of
-              the task, requires extra testing, and might introduce new bugs.
-            </li>
-            <li>
-              Use a workaround: Instead of refactoring, you patch things up.
-              This leads to more complicated code and greater maintenance
-              headaches.
-            </li>
-            <li>
-              Cut corners: With tight deadlines, you might just slap on whatever
-              works, ignoring edge cases and testing gaps.
-            </li>
-          </ol>
-        </div>
       </div>
     </div>
   );

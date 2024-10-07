@@ -1,9 +1,40 @@
+const mainShrartext=`Hey, I wanted to share something cool with you!`
+export const urldata = {
+    oneStream: {
+        portfolioUrl: "https://rishabhdubey108.vercel.app/home",
+        postLink: "https://rishabhdubey108.vercel.app/home/projects/onestream",
+        shareText:mainShrartext,
+        githubUrl: "https://github.com/rishabh3562/oneStream",
+       
+    },
+    collabwrite: {
+        portfolioUrl: "https://rishabhdubey108.vercel.app/home",
+        postLink: "https://rishabhdubey108.vercel.app/home/projects/collabwrite",
+        shareText:mainShrartext,
+        githubUrl: "https://github.com/rishabhdubey108",
+        livelink: 'https://collaboration-tool.vercel.app/'
+    },
+    codeNote: {
+        portfolioUrl: "https://rishabhdubey108.vercel.app/home",
+        postLink: "https://rishabhdubey108.vercel.app/home/projects/codenote",
+        shareText:mainShrartext,
+        githubUrl: "https://github.com/rishabhdubey108",
+        livelink: 'https://collaboration-tool.vercel.app/'
+    },
+    unihub: {
+        portfolioUrl: "https://rishabhdubey108.vercel.app/home",
+        postLink: "https://rishabhdubey108.vercel.app/home/projects/unihub",
+        shareText:mainShrartext,
+        githubUrl: "https://github.com/rishabhdubey108",
+        livelink: 'https://collaboration-tool.vercel.app/'
+    }
+}
 
 export const oneStream = {
     title: "CollabWrite",
     introduction: "CollabWrite",
     description: "Imagine having the freedom to brainstorm ideas, map out strategies, or present complex information in a visually captivating manner.",
-    tags:['CollabWrite','NextJS','TailwindCSS','Appwrite','Vercel'],
+    tags: ['CollabWrite', 'NextJS', 'TailwindCSS', 'Appwrite', 'Vercel'],
     links: {
         appwrite: "https://appwrite.io/",
         github: "https://github.com/heyyakash/CollaborationTool",
@@ -116,7 +147,7 @@ export const CollabWrite = {
     title: "CollabWrite",
     introduction: "CollabWrite",
     description: "Imagine having the freedom to brainstorm ideas, map out strategies, or present complex information in a visually captivating manner.",
-    tags:['CollabWrite','NextJS','TailwindCSS','Appwrite','Vercel'],
+    tags: ['CollabWrite', 'NextJS', 'TailwindCSS', 'Appwrite', 'Vercel'],
     links: {
         appwrite: "https://appwrite.io/",
         github: "https://github.com/heyyakash/CollaborationTool",
