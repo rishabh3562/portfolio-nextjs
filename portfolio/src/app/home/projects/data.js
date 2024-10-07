@@ -1,3 +1,4 @@
+
 export const oneStream = {
     title: "CollabWrite",
     introduction: "CollabWrite is my and Divyesh Jain's submission for the Appwrite Hackathon.",
@@ -37,6 +38,7 @@ export const oneStream = {
     videoDemo: "https://www.youtube.com/watch?v=1AIm2VsOQE4",
     conclusion: "Appwrite played a pivotal role in bringing our project to life. We are committed to further enhancing this project."
 };
+
 
 
 

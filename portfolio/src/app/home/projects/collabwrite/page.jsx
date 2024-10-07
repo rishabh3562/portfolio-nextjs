@@ -1,7 +1,7 @@
 // pages/index.js
 import React from 'react';
 import ProjectCard from '@/components/v1/ProjectStrcuture';
-
+import {oneStream} from '@/app/home/projects/data'
 const collabwrite = () => {
   const project = {
     title: "CollabWrite",
@@ -39,7 +39,7 @@ const collabwrite = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <ProjectCard project={project} />
+      <ProjectCard project={oneStream} />
     </div>
   );
 };

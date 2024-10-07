@@ -1,7 +1,7 @@
 // pages/index.js
-import React from 'react';
+"use client";
 import ProjectCard from '@/components/v1/ProjectStrcuture';
-import {oneStream} from '@/app/home/projects/_data'
+import {oneStream} from '@/app/home/projects/data'
 const onestream = () => {
 
 
