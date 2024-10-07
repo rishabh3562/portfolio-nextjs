@@ -1,7 +1,7 @@
 
 export const oneStream = {
     title: "CollabWrite",
-    introduction: "CollabWrite is my and Divyesh Jain's submission for the Appwrite Hackathon.",
+    introduction: "CollabWrite",
     description: "Imagine having the freedom to brainstorm ideas, map out strategies, or present complex information in a visually captivating manner.",
     tags:['CollabWrite','NextJS','TailwindCSS','Appwrite','Vercel'],
     links: {
@@ -114,8 +114,15 @@ export const CodeNote = {
 
 export const CollabWrite = {
     title: "CollabWrite",
-    introduction: "CollabWrite is my and Divyesh Jain's submission for the Appwrite Hackathon.",
+    introduction: "CollabWrite",
     description: "Imagine having the freedom to brainstorm ideas, map out strategies, or present complex information in a visually captivating manner.",
+    tags:['CollabWrite','NextJS','TailwindCSS','Appwrite','Vercel'],
+    links: {
+        appwrite: "https://appwrite.io/",
+        github: "https://github.com/heyyakash/CollaborationTool",
+        website: "https://collaboration-tool.vercel.app/",
+        video: "https://www.youtube.com/watch?v=1AIm2VsOQE4"
+    },
     techStack: [
         { name: "NextJS", link: "https://nextjs.org/" },
         { name: "TailwindCSS", link: "https://tailwindcss.com/" },
