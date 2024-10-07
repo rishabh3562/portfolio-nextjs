@@ -256,7 +256,6 @@ a {
 }
 .item5 span {
   @apply font-light italic font-playfair;
- 
 }
 .item5 img .another_img {
   @apply absolute h-10 ml-0 mr-2.5 mt-2.5 mb-0 right-0;
@@ -302,7 +301,6 @@ a {
   @apply font-[405] font-poppins text-[13px] not-italic text-[color:var(--darkDark)];
 }
 
-
 head .icon_img {
   @apply rounded-[50px];
 }
@@ -315,77 +313,147 @@ head .icon_img {
 /* --------------------------------------- */
 /* --------------------------------------- */
 
-
 /* --------------------------------------- */
 /* media query for tablet devices (920px) */
 /* --------------------------------------- */
-@media (max-width: 920px) {
-  .v1-container {
-    @apply grid-cols-[repeat(7,1fr)] grid-rows-[repeat(7,1fr)];
-    grid-template-areas:
-      "slogan       slogan      slogan      photo     photo     music     music"
-      "slogan       slogan      slogan      photo     photo     music     music"
-      "slogan       slogan      slogan      photo     photo     music     music"
-      "slogan       slogan      slogan      photo     photo     music     music"
-      "details      details     details     contact   contact   music     music"
-      "details      details     details     contact   contact   music     music"
-      "details      details     details     contact   contact   social    social";
+
+/* --------------------------------------- */
+/* Media Queries for Different Screen Sizes */
+/* --------------------------------------- */
+
+/* Breakpoints for responsive design */
+
+@media (min-width: 1400px) and (max-width: 1536px) {
+  .item5 .contact_me {
+    @apply text-[50px] leading-[45px]; /* Adjusted font size */
   }
+  .item1 .main_slogan {
+    @apply text-[2.5rem] leading-[2.4rem] mb-[30px]; /* Adjusted font size */
+  }
+  .item4 p {
+    @apply text-[1rem] mb-[20px]; /* Adjusted font size */
+  }
+  .item6 p {
+    @apply text-[12px]; /* Adjusted font size */
+  }
+}
+@media (min-width: 1280px) and (max-width: 1400px) {
+  .item5 .contact_me {
+    @apply text-[50px] leading-[45px]; /* Adjusted font size */
+  }
+  .item1 .main_slogan {
+    @apply text-[30px] leading-[30px] mb-[30px]; /* Adjusted font size */
+  }
+  .item4 p {
+    @apply text-[0.8rem] mb-[20px]; /* Adjusted font size */
+  }
+  .item6 p {
+    @apply text-[12px]; /* Adjusted font size */
+  }
+}
+
+/* 2. 1024px to 1280px */
+@media (min-width: 1180px) and (max-width: 1280px) {
   .item5 .contact_me {
     @apply text-[40px] leading-[35px];
   }
   .item1 .main_slogan {
-    @apply text-[25px] leading-[25px] mb-[25px];
+    @apply text-[1.8rem] leading-[30px] mb-[25px];
   }
   .item4 p {
-    @apply text-[0.8rem] mb-[15px];
+    @apply text-[1rem] mb-[15px] leading-[1.2rem];
   }
   .item6 p {
     @apply text-[11px];
   }
 }
-
-/* --------------------------------------- */
-/* media query for mobile devices (480px) */
-/* --------------------------------------- */
-@media (max-width: 720px) {
-  .item1 .main_slogan {
-    @apply text-[1.2rem] leading-[1.6rem];
+@media (min-width: 1024px) and (max-width: 1180px) {
+  .item5 .contact_me {
+    @apply text-[40px] leading-[35px];
   }
-}
-@media (max-width: 620px) {
   .item1 .main_slogan {
-    @apply text-base leading-[1.2rem];
-  }
-}
-@media (max-width: 480px) {
-  .v1-container {
-    @apply h-[200vh] grid-cols-[repeat(7,1fr)] grid-rows-[repeat(16,1fr)];
-    grid-template-areas:
-      "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-      "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-      "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-      "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
-      "photo    photo     photo     details   details   details   details"
-      "photo    photo     photo     details   details   details   details"
-      "photo    photo     photo     details   details   details   details"
-      "music    music     music     music     music     music     music"
-      "music    music     music     music     music     music     music"
-      "music    music     music     music     music     music     music"
-      "music    music     music     music     music     music     music"
-      "music    music     music     music     music     music     music"
-      "contact  contact   contact   contact   contact   contact   contact"
-      "contact  contact   contact   contact   contact   contact   contact"
-      "contact  contact   contact   contact   contact   contact   contact"
-      "social   social    social    social    social    social    social";
+    @apply text-[1.8rem] leading-[30px] mb-[25px];
   }
   .item4 p {
-    @apply text-[10px] mr-[15px];
+    @apply text-[.8rem] mb-[15px] leading-[1.2rem];
+  }
+  .item6 p {
+    @apply text-[11px];
+  }
+}
+/* 3. 920px to 1024px */
+@media (min-width: 920px) and (max-width: 1024px) {
+  .item5 .contact_me {
+    @apply text-[38px] leading-[33px]; /* Adjusted font size */
   }
   .item1 .main_slogan {
-    @apply text-[35px] leading-[30px];
+    @apply text-[24px] leading-[24px] mb-[24px]; /* Adjusted font size */
   }
-  .nav-bar .logo a {
-    @apply text-3xl;
+  .item4 p {
+    @apply text-[0.58rem] mb-[14px]; /* Adjusted font size */
   }
+  .item6 p {
+    @apply text-[10px]; /* Adjusted font size */
+  }
+}
+
+/* 4. 752px to 920px */
+@media (min-width: 752px) and (max-width: 920px) {
+  .item5 .contact_me {
+    @apply text-[36px] leading-[32px]; /* Adjusted font size */
+  }
+  .item1 .main_slogan {
+    @apply text-[22px] leading-[22px] mb-[22px]; /* Adjusted font size */
+  }
+  .item4 p {
+    @apply text-[0.55rem] mb-[13px]; /* Adjusted font size */
+  }
+  .item6 p {
+    @apply text-[9px]; /* Adjusted font size */
+  }
+}
+
+/* 5. Mobile devices (max-width: 752px) */
+@media (max-width: 752px) {
+  .item1 .main_slogan {
+    @apply text-[20px] leading-[24px]; /* Adjusted font size */
+  }
+}
+
+/* 6. 620px and below */
+@media (max-width: 620px) {
+  .item1 .main_slogan {
+    @apply text-[18px] leading-[22px]; /* Adjusted font size */
+  }
+}
+
+/* 7. 300px to 480px */
+@media (min-width: 300px) and (max-width: 480px) {
+  .item5 .contact_me {
+    @apply text-[32px] leading-[28px]; /* Adjusted font size */
+  }
+  .item1 .main_slogan {
+    @apply text-[16px] leading-[20px]; /* Adjusted font size */
+  }
+  .item4 p {
+    @apply text-[0.5rem] mb-[10px]; /* Adjusted font size */
+  }
+  .item6 p {
+    @apply text-[8px]; /* Adjusted font size */
+  }
+}
+
+/* 8. 200px to 300px */
+@media (min-width: 200px) and (max-width: 300px) {
+  /* Add specific styles if necessary */
+}
+
+/* 9. 100px to 200px */
+@media (min-width: 100px) and (max-width: 200px) {
+  /* Add specific styles if necessary */
+}
+
+/* 10. 0px to 100px */
+@media (min-width: 0px) and (max-width: 100px) {
+  /* Add specific styles if necessary */
 }
