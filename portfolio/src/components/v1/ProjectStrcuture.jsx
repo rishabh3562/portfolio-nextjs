@@ -35,42 +35,56 @@ const DropDown = ({ urlData }) => (
     )}
     <li
       className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-      onClick={() => handleShare("telegram", urlData.shareText)}
+      onClick={() => handleShare("telegram", urlData)}
     >
       <FaTelegramPlane /> Share on Telegram
     </li>
     <li
       className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-      onClick={() => handleShare("whatsapp", urlData.shareText)}
+      onClick={() => handleShare("whatsapp", urlData)}
     >
       <FaWhatsapp /> Send on WhatsApp
     </li>
     <li
       className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-      onClick={() => handleCopy(urlData.postLink)}
+      onClick={() => handleCopy(urlData.liveLink)}
     >
       <GoLink /> Copy Post Link
     </li>
   </ul>
 );
 
-const handleShare = (platform, text, urlData) => {
-  const shareMessage = [
-    urlData.postLink ? `Check out this post: ${urlData.postLink}` : '',
-    urlData.website ? `Explore my website: ${urlData.website}` : '',
-    urlData.github ? `View my code on GitHub: ${urlData.github}` : '',
-    urlData.liveLink ? `Check out this live project: ${urlData.liveLink}` : '',
-  ].filter(Boolean).join("\n");
-
-  const message = encodeURIComponent(`${text}\n\n${shareMessage}`);
-  const shareUrl =
-    platform === "telegram"
-      ? `https://t.me/share/url?url=${encodeURIComponent(urlData.postLink)}&text=${message}`
-      : `https://api.whatsapp.com/send?text=${message}`;
-
-  window.open(shareUrl, "_blank");
-};
-
+const handleShare = (platform, urlData) => {
+    const text = urlData?.shareText || "Check out this post:";
+    
+    const shareMessage = Object.entries(urlData)
+    .filter(([_, value]) => value)
+    .map(([key, value]) => {
+      switch (key) {
+        case "postLink":
+          return `Check out this post: ${value}\n`;
+        case "websiteUrl":
+          return `Explore my website: ${value}`;
+        case "githubUrl":
+          return `View my code on GitHub: ${value}`;
+        case "liveLink":
+          return `Check out this live project: ${value}`;
+        default:
+          return "";
+      }
+    })
+    .join("\n");
+  
+    const message = encodeURIComponent(`${text}\n\n${shareMessage}`);
+    
+    const shareUrl =
+      platform === "telegram"
+        ? `https://t.me/share/url?url=${encodeURIComponent(urlData.liveLink)}&text=${message}`
+        : `https://api.whatsapp.com/send?text=${message}`; // WhatsApp URL
+  
+    window.open(shareUrl, "_blank");
+  };
+  
 const Divider = () => <hr className="my-6 border-gray-600 opacity-50" />;
 
 const DynamicSection = ({ title, children }) => (
@@ -83,9 +97,20 @@ const DynamicSection = ({ title, children }) => (
   </>
 );
 
-const FeatureItem = ({ title, description }) => (
+const FeatureItem = ({ title, description,url }) => (
   <div className="feature-item mb-4">
     <h3 className="text-lg font-semibold text-primaryColor">{title}</h3>
+   
+  {url.link && (
+     <Image 
+     src={url.link} 
+     alt="Feature image"  
+ width={1000}
+     height={100} 
+     style={{ width: '100%', height: 'auto' }} 
+     className='rounded-xl my-4 object-cover' 
+   />
+  )}
     <p className="text-tertiaryColor">{description}</p>
   </div>
 );
@@ -99,7 +124,7 @@ const FeaturesList = ({ features }) => (
           key={index} 
           title={feature.title} 
           description={feature.description} 
-        />
+          url={feature.image?feature.image:{link:"",description:"",width:1000,height:1000}}        />
       ))}
     </div>
   </section>
@@ -250,39 +275,20 @@ const ProjectCard = ({ project, urlData }) => {
         {project.challenges && project.challenges.length > 0 && (
           <>
             <DynamicSection title="Challenges we faced">
-               <FeaturesList features={project.features} />
+               <FeaturesList features={project.challenges} />
             </DynamicSection>
            
           </>
         )}
-
-        {project.githubRepo && project.websiteLink && (
-          <>
-            <DynamicSection title="Public code repo">
-              <ul className="list-disc list-inside">
-                <li>
-                  GitHub -{" "}
-                  <a
-                    href={project.githubRepo}
-                    className="text-blue-600 hover:underline"
-                  >
-                    {project.githubRepo}
-                  </a>
-                </li>
-                <li>
-                  Website link -{" "}
-                  <a
-                    href={project.websiteLink}
-                    className="text-blue-600 hover:underline"
-                  >
-                    {project.websiteLink}
-                  </a>
-                </li>
-              </ul>
-            </DynamicSection>
-            <SectionSeparator />
-          </>
-        )}
+{project.usage && project.usage.length > 0 && (
+       <>
+       <DynamicSection title="Usage">
+          <FeaturesList features={project.usage} />
+       </DynamicSection>
+      
+     </>
+)}
+    
 
         {project.videoDemo && (
           <>
@@ -301,10 +307,16 @@ const ProjectCard = ({ project, urlData }) => {
           </>
         )}
 
-        {project.conclusion && (
+        {(project.conclusion || project.license|| project.contributionGuidelines) && (
           <>
             <DynamicSection title="Conclusion">
-              <p>{project.conclusion}</p>
+                 <ul className="list-disc list-inside">
+        {project.contributionGuidelines && <li><>{project.contributionGuidelines}</></li>}
+        {project.conclusion && <li><>{project.conclusion}</></li>}
+        {project.license && <li><>{project.license}</></li>}
+ 
+        </ul>
+          
             </DynamicSection>
            
           </>
