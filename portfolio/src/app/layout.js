@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       
         <meta name="description" content={metadata.description} />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-black `}>
         {children}
       </body>
     </html>

@@ -5,8 +5,6 @@
 */
 * {
   @apply box-border m-0 p-0;
-
-  /* font-family: "Arial black", sans-serif; */
 }
 :root {
   --primaryColor: #d0bca0;
@@ -19,18 +17,7 @@ body {
 
   /* height: 100vh; */
 }
-.arrow-icon {
-  float: inline-end;
-}
-.arrow-btn:hover {
-  float: inline-end;
-}
-.project-wrapper {
-  @apply flex gap-4 text-2xl ml-4;
-}
-.project-link-wrapper {
-  float: inline-end;
-}
+
 .phone-block {
   @apply hidden;
 }
@@ -69,9 +56,6 @@ body {
 /* Add this */
 .card:hover .card-inner {
   transform: rotateY(180deg);
-}
-#revealBtn {
-  @apply text-base text-[white] bg-[color:var(--primaryColor)] cursor-pointer transition-[background-color] duration-[0.3s] mt-5 px-5 py-2.5 rounded-[5px] border-[none] hover:bg-[#45a049];
 }
 
 /* Media queries for responsiveness */
@@ -230,13 +214,14 @@ a {
   @apply relative;
 }
 .main_slogan {
-  @apply font-[bold] not-italic text-[2rem] leading-8 absolute ml-2.5 mr-[90px] mt-0 mb-[50px] left-2.5 bottom-0;
-  font-family: "Playfair Display", serif;
+  @apply font-bold font-playfair not-italic text-[2rem] leading-8 absolute ml-2.5 mr-[90px] mt-0 mb-[50px] left-2.5 bottom-0;
+  
   font-optical-sizing: auto;
+  
 }
 .item1 span {
-  @apply font-[lighter] italic;
-  font-family: "Playfair Display" "serif";
+  @apply font-light font-playfair italic;
+
 }
 .item1 img {
   @apply absolute h-[110px] right-0;
@@ -249,8 +234,8 @@ a {
   @apply relative;
 }
 .item4 p {
-  @apply font-[405] text-xs not-italic absolute ml-5 mr-[50px] mt-0 mb-[30px] bottom-0;
-  font-family: "Poppins", sans-serif;
+  @apply font-[405] font-poppins text-sm not-italic absolute ml-5 mr-[50px] mt-0 mb-[30px] bottom-0;
+
 
   /* left: 10p; */
 }

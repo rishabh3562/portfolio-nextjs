@@ -19,6 +19,17 @@ module.exports = {
         playfair: ['Playfair Display', 'serif'],
         bodoni: ['Bodoni Moda', 'serif'],
         beathney: ['Breathney', 'serif'],
+      }, screens: {
+    
+        'xs': { 'min': '375px' },
+        // => @media (min-width: 375px) { ... }
+      },gridTemplateColumns: {
+        // Custom column definition for 16 equal columns
+        '16': 'repeat(16, 1fr)',
+      },
+      gridTemplateRows: {
+        // Custom row definition for 16 equal rows
+        '16': 'repeat(16, 1fr)',
       },
     },
   },

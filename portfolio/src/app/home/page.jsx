@@ -120,7 +120,7 @@ const MyComponent = () => {
            "
           >
             AWS Certified <span> Cloud </span>Practitioner and
-            <span>web </span> developer, crafting scalable web solutions that
+            <span>&nbsp;web </span> developer, crafting scalable web solutions that
             optimize performance and user experience.
           </p>
         </div>

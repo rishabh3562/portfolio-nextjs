@@ -29,45 +29,8 @@
   src: url("./fonts/Breathney Demo.ttf");
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  /* --grid-background: #15100d; */
-  --grid-background: #343131;
-  /* --grid-blocks-background: #D5C6B4; */
-  /* --grid-blocks-background: #d8a25e; */
-  --grid-blocks-background: #d8a25e;
 
-  --text-dark-yellow: #d8a25e;
-  --text-light-yellow: #eedf7a;
-  --text-dark-red: #a04747;
-  --text-secondary: #444444;
-  --text-tertiary: #666666;
-  --font-custom: @import url("./fonts/Breathney Demo.ttf");
-  --font-breathney: @import url("./fonts/Breathney Demo.ttf");
-  --primary: #1E201E;
-  --secondary: #8d99ae;
-  --accent: #ef233c;
-  --lightBackground: #edf2f4;
-  --lightText: #edf2f4;
-  --darkText: #2b2d42;
---muted-gold:'#9B8D78';
 
-  /* // New custom colors */
-  --slate-dark: #121212; /* // Dark background */
-  --slate-light: #1c1c1c; /* // Lighter background */
-  --beige: #e6ddd1; /* // Beige text background */
-  --blue-border: #4a90e2; /* // Blue border color */
-  --green-border: #2ecc71; /* // Green border color */
-  --red-border: #e74c3c; /* // Red border color */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 
 * {
