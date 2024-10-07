@@ -1,10 +1,13 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  @apply box-border m-0 p-0;
+
   /* font-family: "Arial black", sans-serif; */
 }
-
 :root {
   --primaryColor: #d0bca0;
   --bgColor: #3e3d38;
@@ -12,68 +15,55 @@
   --darkDark: #1e201e;
 }
 body {
-  /* height: 100vh; */
-  background-color: var(--darkDark);
-}
+  @apply bg-[color:var(--darkDark)];
 
-.arrow-icon{
+  /* height: 100vh; */
+}
+.arrow-icon {
   float: inline-end;
 }
 .arrow-btn:hover {
-float: inline-end;
+  float: inline-end;
 }
 .project-wrapper {
-  display: flex;
-  gap: 1rem;
-  margin-left: 1rem;
-font-size: 1.5rem !important;
+  @apply flex gap-4 text-2xl ml-4;
 }
 .project-link-wrapper {
   float: inline-end;
-
-
 }
 .phone-block {
-  display: none;
+  @apply hidden;
 }
-
 .joke-heading {
+  @apply text-2xl text-[color:var(--primaryColor)] text-center mx-0 my-5;
   font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  color: var(--primaryColor);
-  text-align: center;
-  margin: 20px 0;
 }
 #reveal-not-phone {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  @apply absolute right-0 bottom-0;
 }
 .container-card {
+  @apply flex justify-center items-center w-full h-full;
   perspective: 1000px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
 }
-
 .card {
-  width: 100%;
-  height: 100%;
-  /* position: relative; */
-  cursor: pointer;
-  transition: transform 0.6s; /* existing transition */
-  transform-style: preserve-3d; /* existing style */
-}
+  @apply w-full h-full cursor-pointer transition-transform duration-[0.6s];
 
+  /* position: relative; */
+
+  /* existing transition */
+  transform-style: preserve-3d;
+
+  /* existing style */
+}
 .card-inner {
+  @apply w-full h-full transition-transform duration-[0.6s];
+
   /* position: absolute; */
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s; /* existing transition */
-  transform-style: preserve-3d; /* existing style */
+
+  /* existing transition */
+  transform-style: preserve-3d;
+
+  /* existing style */
 }
 
 /* Add this */
@@ -81,186 +71,98 @@ font-size: 1.5rem !important;
   transform: rotateY(180deg);
 }
 #revealBtn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: var(--primaryColor);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#revealBtn:hover {
-  background-color: #45a049;
+  @apply text-base text-[white] bg-[color:var(--primaryColor)] cursor-pointer transition-[background-color] duration-[0.3s] mt-5 px-5 py-2.5 rounded-[5px] border-[none] hover:bg-[#45a049];
 }
 
 /* Media queries for responsiveness */
-
 .card-front,
 .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  @apply absolute w-full h-full flex justify-center items-center text-xl shadow-[0_4px_8px_rgba(0,0,0,0.2)] p-2.5 rounded-[10px];
   backface-visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .card-front {
-  background-color: var(--bgColor);
-  color: #333;
+  @apply bg-[color:var(--bgColor)] text-[#333];
 }
 .card-front #jokeQuestion {
+  @apply font-[bold] not-italic text-[2rem] leading-8 text-[color:var(--primaryColor)];
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 2rem;
-  line-height: 32px;
-  color: var(--primaryColor);
 }
 .card-front #reveal {
-  display: none;
+  @apply hidden;
 }
 .card-front #reveal-not-phone {
-  color: var(--primaryColor);
+  @apply text-[color:var(--primaryColor)];
   font-family: "Playfair Display", serif;
 }
-
 .card-back {
-  background-color: var(--primaryColor);
-  color: var(--darkDark);
+  @apply bg-[color:var(--primaryColor)] text-[color:var(--darkDark)] font-[bold] not-italic text-[2rem] leading-8;
   transform: rotateY(180deg);
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 2rem;
-  line-height: 32px;
 }
-
 a {
-  text-decoration: none;
-  color: var(--darkDark);
+  @apply no-underline text-[color:var(--darkDark)];
 }
 /* --------------------------------------- */
 /* Navbar Section */
 /* --------------------------------------- */
 .nav-bar {
+  @apply h-[10vh] flex justify-between items-center relative bg-[color:var(--primaryColor)] m-2.5 px-[25px] py-3 rounded-[10px];
+
   /* width: 95%; */
-  height: 10vh;
-  margin: 10px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   list-style: none;
-  position: relative;
-  background-color: var(--primaryColor);
-  padding: 12px 25px;
 }
 /* logo_text */
 .logo a {
+  @apply no-underline text-[color:var(--darkDark)] text-[35px] font-semibold;
   font-family: "Playfair Display", serif;
-  text-decoration: none;
-  color: var(--darkDark);
-  font-size: 35px;
-  font-weight: 600;
 }
 .nav-bar .logo span {
-  font-style: italic;
-  font-weight: 10;
-  margin-left: 2px;
+  @apply italic font-[10] ml-0.5;
 }
-
 .menu {
-  display: flex;
+  @apply flex;
 }
 .menu li {
-  padding-left: 30px;
+  @apply pl-[30px];
 }
 /* list links */
 .menu li a {
+  @apply font-[405] text-[15px] not-italic inline-block no-underline text-[color:var(--lightDark)] text-center transition-[0.15s] duration-[ease-in-out] relative uppercase after:content-[""] after:absolute after:w-0 after:h-px after:bg-[color:var(--darkDark)] after:transition-[0.15s] after:duration-[ease-in-out] after:left-0 after:bottom-0 hover:after:w-full;
   font-family: "Poppins", sans-serif;
-  font-weight: 405;
-  font-size: 15px;
-  font-style: normal;
-  /* haha  */
 
-  display: inline-block;
-  text-decoration: none;
-  color: var(--lightDark);
-  text-align: center;
-  transition: 0.15s ease-in-out;
-  position: relative;
-  text-transform: uppercase;
-}
-.menu li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: var(--darkDark);
-  transition: 0.15s ease-in-out;
-}
-.menu li a:hover:after {
-  width: 100%;
+  /* haha  */
 }
 .open-menu,
 .close-menu {
-  position: absolute;
-  color: var(--darkDark);
-  cursor: pointer;
-  font-size: 1.5rem;
-  display: none;
+  @apply absolute text-[color:var(--darkDark)] cursor-pointer text-2xl hidden;
 }
 .open-menu {
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
+  @apply -translate-y-2/4 right-5 top-2/4;
 }
 .close-menu {
-  top: 20px;
-  right: 20px;
+  @apply right-5 top-5;
 }
 #check {
-  display: none;
+  @apply hidden;
 }
 @media (max-width: 610px) {
   .menu {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    z-index: 100;
-    background-color: var(--primaryColor);
-    transition: all 0.2s ease-in-out;
+    @apply flex-col items-center justify-center w-4/5 h-screen fixed z-[100] bg-[color:var(--primaryColor)] transition-all duration-[0.2s] ease-[ease-in-out] -right-full top-0;
   }
   .menu li {
-    margin-top: 40px;
+    @apply mt-10;
   }
   .menu li a {
-    padding: 10px;
+    @apply p-2.5;
   }
   .open-menu,
   .close-menu {
-    display: block;
+    @apply block;
   }
   #check:checked ~ .menu {
-    right: 0;
+    @apply right-0;
   }
 }
 /* --------------------------------------- */
@@ -270,22 +172,13 @@ a {
 /* --------------------------------------- */
 /* slogan section layout */
 /* --------------------------------------- */
-
 .item {
-  background-color: var(--primaryColor);
-  border-radius: 10px;
+  @apply bg-[color:var(--primaryColor)] rounded-[10px];
 }
-
 .v1-container {
-  padding: 0 10px 10px 10px;
-  /* min-height: 500px; */
-  width: 100%;
+  @apply w-full h-[85vh] grid gap-2.5 grid-cols-[repeat(7,1fr)] grid-rows-[repeat(7,1fr)] pt-0 pb-2.5 px-2.5;
 
-  height: 85vh;
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  /* min-height: 500px; */
   grid-template-areas:
     "slogan       slogan      slogan      photo     photo     music     music"
     "slogan       slogan      slogan      photo     photo     music     music"
@@ -295,7 +188,6 @@ a {
     "details      details     contact     contact   contact   music     music"
     "details      details     contact     contact   contact   social    social";
 }
-
 .item1 {
   grid-area: slogan;
 }
@@ -322,211 +214,114 @@ a {
 /* --------------------------------------- */
 /* image div css */
 /* --------------------------------------- */
-
 .item2 {
-  background-color: var(--bgColor);
-  text-align: center;
-  /* padding-right: 50px; */
-  width: 100%;
+  @apply bg-[color:var(--bgColor)] text-center w-full relative overflow-hidden;
 
-  position: relative;
-  overflow: hidden;
+  /* padding-right: 50px; */
 }
 .item2 img {
-  position: absolute;
-  bottom: 0;
-  width: auto;
-  height: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  @apply absolute w-auto h-full -translate-x-2/4 left-2/4 bottom-0;
 }
 
 /* --------------------------------------- */
 /* slogan div css */
 /* --------------------------------------- */
-
 .item1 {
-  position: relative;
+  @apply relative;
 }
-
 .main_slogan {
+  @apply font-[bold] not-italic text-[2rem] leading-8 absolute ml-2.5 mr-[90px] mt-0 mb-[50px] left-2.5 bottom-0;
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 2rem;
-  line-height: 32px;
-
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  margin: 0 90px 50px 10px;
 }
-
 .item1 span {
+  @apply font-[lighter] italic;
   font-family: "Playfair Display" "serif";
-  font-weight: lighter;
-  font-style: italic;
 }
-
 .item1 img {
-  position: absolute;
-  height: 110px;
-  right: 0;
+  @apply absolute h-[110px] right-0;
 }
 
 /* --------------------------------------- */
 /* intro div css */
 /* --------------------------------------- */
-
 .item4 {
-  position: relative;
+  @apply relative;
 }
-
 .item4 p {
+  @apply font-[405] text-xs not-italic absolute ml-5 mr-[50px] mt-0 mb-[30px] bottom-0;
   font-family: "Poppins", sans-serif;
-  font-weight: 405;
-  font-size: 12px;
-  font-style: normal;
 
-  position: absolute;
-  bottom: 0;
   /* left: 10p; */
-  margin: 0 50px 30px 20px;
 }
-
 .item4 img {
-  height: 50px;
-  margin: 10px 0 0 10px;
+  @apply h-[50px] ml-2.5 mr-0 mt-2.5 mb-0;
 }
 
 /* --------------------------------------- */
 /* contact me div css */
 /* --------------------------------------- */
-
 .item5 {
-  background-color: var(--bgColor);
-  position: relative;
+  @apply bg-[color:var(--bgColor)] relative;
 }
-
 .item5 .questions {
-  margin: 20px 0 0 20px;
+  @apply font-[405] text-[13px] not-italic text-[color:var(--primaryColor)] leading-[15px] ml-5 mr-0 mt-5 mb-0;
   font-family: "Poppins", sans-serif;
-  font-weight: 405;
-  font-size: 13px;
-  font-style: normal;
-  color: var(--primaryColor);
-  line-height: 15px;
 }
 .item5 .contact_me {
+  @apply font-medium not-italic text-[50px] text-[color:var(--primaryColor)] absolute ml-5 mr-0 mb-0 my-5 bottom-0;
   font-family: "Bodoni Moda", serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 50px;
-  color: var(--primaryColor);
-
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0;
-  margin: 20px 0 20px 20px;
 }
-
 .item5 span {
+  @apply font-[lighter] italic;
   font-family: "Playfair Display" "serif";
-  font-weight: lighter;
-  font-style: italic;
 }
-
 .item5 img .another_img {
-  position: absolute;
-  height: 40px;
-  right: 0;
-  margin: 10px 10px 0 0;
+  @apply absolute h-10 ml-0 mr-2.5 mt-2.5 mb-0 right-0;
 }
 
 /* --------------------------------------- */
 /* playlist div css */
 /* --------------------------------------- */
-
 .item3 {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 30px;
+  @apply relative flex flex-col justify-between pb-[30px];
+
   /* margin-bottom: 50px; */
 }
-
 .item3 .title {
-  position: absolute;
-  margin: 20px 0 0 20px;
-
+  @apply absolute font-extrabold not-italic text-[17px] text-[color:var(--darkDark)] ml-5 mr-0 mt-5 mb-0;
   font-family: "Bodoni Moda", serif;
   font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-size: 17px;
-  color: var(--darkDark);
 }
-
 .item3 .arrow {
-  position: absolute;
-  right: 0;
-  height: 5%;
-  margin: 23px 20px 0 0;
+  @apply absolute h-[5%] ml-0 mr-5 mt-[23px] mb-0 right-0;
 }
-
 .item3 .bharat_chauhan_img {
+  @apply w-[90%] block mt-[50px] mb-0 mx-0 mx-auto rounded-[20px];
+
   /* height: 150px; */
-  width: 90%;
-  margin: 50px 0 0 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
 }
-
 .item3 .line {
-  height: 1px;
-  width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  @apply h-px w-[90%] block bg-[color:var(--lightDark)] mx-auto rounded-[20px] border-none;
+
   /* margin-top: 20px; */
-  background-color: var(--lightDark);
-  border-style: none;
-  border-radius: 20px;
 }
-
 .item3 .music {
-  margin-left: 15px;
-
+  @apply font-extrabold not-italic text-[1.2rem] ml-[15px];
   font-family: "Bodoni Moda", serif;
   font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-size: 1.2rem;
 }
 
 /* --------------------------------------- */
 /* social media links div css */
 /* --------------------------------------- */
-
 .item6 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
+  @apply flex flex-row justify-around items-center relative;
 }
-
 .item6 p {
+  @apply font-[405] text-[13px] not-italic text-[color:var(--darkDark)];
   font-family: "Poppins", sans-serif;
-  font-weight: 405;
-  font-size: 13px;
-  font-style: normal;
-  color: var(--darkDark);
 }
 
 /* .item6 p::after {
@@ -539,9 +334,8 @@ a {
     background-color: var(--darkDark);
     transition: 0.15s ease-in-out;
   } */
-
 head .icon_img {
-  border-radius: 50px;
+  @apply rounded-[50px];
 }
 
 /* --------------------------------------- */
@@ -555,11 +349,9 @@ head .icon_img {
 /* --------------------------------------- */
 /* media query for tablet devices (920px) */
 /* --------------------------------------- */
-
 @media (max-width: 920px) {
   .v1-container {
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    @apply grid-cols-[repeat(7,1fr)] grid-rows-[repeat(7,1fr)];
     grid-template-areas:
       "slogan       slogan      slogan      photo     photo     music     music"
       "slogan       slogan      slogan      photo     photo     music     music"
@@ -569,25 +361,17 @@ head .icon_img {
       "details      details     details     contact   contact   music     music"
       "details      details     details     contact   contact   social    social";
   }
-
   .item5 .contact_me {
-    font-size: 40px;
-    line-height: 35px;
+    @apply text-[40px] leading-[35px];
   }
-
   .item1 .main_slogan {
-    font-size: 25px;
-    line-height: 25px;
-    margin-bottom: 25px;
+    @apply text-[25px] leading-[25px] mb-[25px];
   }
-
   .item4 p {
-    margin-bottom: 15px;
-    font-size: 0.8rem;
+    @apply text-[0.8rem] mb-[15px];
   }
-
   .item6 p {
-    font-size: 11px;
+    @apply text-[11px];
   }
 }
 
@@ -596,21 +380,17 @@ head .icon_img {
 /* --------------------------------------- */
 @media (max-width: 720px) {
   .item1 .main_slogan {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
+    @apply text-[1.2rem] leading-[1.6rem];
   }
 }
 @media (max-width: 620px) {
   .item1 .main_slogan {
-    font-size: 1rem;
-    line-height: 1.2rem;
+    @apply text-base leading-[1.2rem];
   }
 }
 @media (max-width: 480px) {
   .v1-container {
-    height: 200vh;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    @apply h-[200vh] grid-cols-[repeat(7,1fr)] grid-rows-[repeat(16,1fr)];
     grid-template-areas:
       "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
       "slogan   slogan    slogan    slogan    slogan    slogan    slogan"
@@ -629,18 +409,13 @@ head .icon_img {
       "contact  contact   contact   contact   contact   contact   contact"
       "social   social    social    social    social    social    social";
   }
-
   .item4 p {
-    font-size: 10px;
-    margin-right: 15px;
+    @apply text-[10px] mr-[15px];
   }
   .item1 .main_slogan {
-    font-size: 35px;
-    line-height: 30px;
+    @apply text-[35px] leading-[30px];
   }
-
   .nav-bar .logo a {
-    font-size: 30px;
+    @apply text-3xl;
   }
 }
-
