@@ -7,7 +7,7 @@ const collabwrite = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <ProjectCard project={CollabWrite} urlData={urldata.collabwrite} />
+      <ProjectCard project={CollabWrite} urlData={urldata.collabWrite} />
     </div>
   );
 };

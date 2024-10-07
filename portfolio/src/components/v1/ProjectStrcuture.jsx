@@ -20,15 +20,15 @@ const SectionSeparator = () => <hr className="mt-4 mb-4 border-primaryColor opac
 
 const handleCopy = (text) => {
   navigator.clipboard.writeText(text);
-  alert("Link copied to clipboard!");
+
 };
 
 const DropDown = ({ urlData }) => (
   <ul>
-    {urlData.website && (
+    {urlData.liveLink && (
       <li
         className="px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-primaryColor hover:text-darkDark text-primaryColor"
-        onClick={() => handleCopy(urlData.website)}
+        onClick={() => handleCopy(urlData.liveLink)}
       >
         <FaCopy /> Copy Website Link
       </li>
@@ -185,9 +185,9 @@ const HeaderSection = ({ project, urlData }) => {
         </div>
         <div className="relative">
           <div className="flex gap-2 items-center">
-            {urlData.github && (
+            {urlData.githubUrl  && (
               <FaGithub
-                onClick={() => window.open(urlData.github, "_blank")}
+                onClick={() => window.open(urlData.githubUrl, "_blank")}
                 className="cursor-pointer text-primaryColor transition-all ease-in"
                 title="GitHub"
               />
@@ -225,7 +225,7 @@ const ProjectCard = ({ project, urlData }) => {
         {project.introduction && (
           <DynamicSection title="Introduction">
             <p className="text-lg">{project.introduction}</p>
-            <p className="text-lg">{project.description}</p>
+       
           </DynamicSection>
         )}
 

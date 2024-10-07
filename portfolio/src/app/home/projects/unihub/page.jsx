@@ -1,9 +1,15 @@
-import React from 'react'
+// pages/index.js
+import React from 'react';
+import ProjectCard from '@/components/v1/ProjectStrcuture';
+import {uniHub,urldata} from '@/app/home/projects/data'
+const unihub = () => {
 
-const page = () => {
+
   return (
-    <div>page</div>
-  )
-}
+    <div className="flex flex-col items-center">
+      <ProjectCard project={uniHub} urlData={urldata.uniHub} />
+    </div>
+  );
+};
 
-export default page
+export default unihub;
