@@ -224,6 +224,16 @@ const ProjectCard = ({ project, urlData }) => {
         <HeaderSection project={project} urlData={urlData} />
         {project.introduction && (
           <DynamicSection title="Introduction">
+             {project.mainUrl && (
+          <Image
+          src={project.mainUrl}
+          width={1000}
+          height={100}
+          alt="Project Header"
+
+          className="w-full h-72 rounded-xl mb-4 object-fill"
+        />
+   )}
             <p className="text-lg">{project.introduction}</p>
        
           </DynamicSection>
