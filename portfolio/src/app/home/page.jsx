@@ -82,8 +82,11 @@ const MyComponent = () => {
       <nav>
         <ul className="nav-bar">
           <li className="logo">
-            <Link href="/home">
-              Rishabh<span>Dubey</span>
+            <Link href="/home" className='flex'>
+              <p>
+                Rishabh
+                </p>
+                <span>Dubey</span>
             </Link>
           </li>
           <input type="checkbox" id="check" />
@@ -129,8 +132,8 @@ const MyComponent = () => {
           <div className="card" id="jokeCard">
             <div className="card-inner">
               <div className="card-front">
-                <p id="jokeQuestion">{jokemessage}</p>
-                <p id="reveal" className="phone-block">
+                <p id="jokeQuestion" className='joketext'>{jokemessage}</p>
+                <p id="reveal" className="phone-block joketext">
                   Hover/Tap to reveal
                 </p>
                 <p id="reveal-not-phone" className="not-phone">
