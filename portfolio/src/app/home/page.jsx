@@ -218,6 +218,7 @@ const MyComponent = () => {
         </div>
 
         <div className="item item5">
+        <Link href="/home/contact">
           <Image
             src={WhiteArrowImage}
             alt="arrow image"
@@ -229,8 +230,10 @@ const MyComponent = () => {
             Have some <br /> Questions?
           </p>
           <p className="contact_me">
+        
             Contact <span>me</span>
           </p>
+            </Link>
         </div>
 
         <div className="item item6">
