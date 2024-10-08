@@ -78,7 +78,7 @@ const MyComponent = () => {
     jokes[jokeIndex].answer ? jokes[jokeIndex].answer : jokes[0].answer
   );
   return (
-    <>
+    <div className=''>
       <nav>
         <ul className="nav-bar">
           <li className="logo">
@@ -254,7 +254,7 @@ const MyComponent = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

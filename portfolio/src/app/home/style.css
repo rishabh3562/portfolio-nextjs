@@ -160,7 +160,7 @@ a {
   @apply bg-[color:var(--primaryColor)] rounded-[10px];
 }
 .v1-container {
-  @apply w-full h-[85vh] grid gap-2.5 grid-cols-[repeat(7,1fr)] grid-rows-[repeat(7,1fr)] pt-0 pb-2.5 px-2.5;
+  @apply w-full h-[85vh] grid gap-3 grid-cols-[repeat(7,1fr)] grid-rows-[repeat(7,1fr)] pt-0  px-2.5;
 
   /* min-height: 500px; */
   grid-template-areas:
