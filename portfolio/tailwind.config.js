@@ -8,12 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryColor: '#d0bca0',//muted gold
-        secondaryColor: '#d19a9a',//dusty rose
-        tertiaryColor: '#7d7d7d',
-        bgColor: '#3e3d38',
-        lightDark: '#3c3d37',
-        darkDark: '#1e201e',
+        primaryColor: 'var(--primaryColor)',//muted gold
+        // secondaryColor: 'var(--secondaryColor)',//dusty rose
+        tertiaryColor: 'var(--tertiaryColor)',//muted brown
+        bgColor: 'var(--bgColor)',
+        lightDark: 'var(--lightDark)',
+        darkDark: 'var(--darkDark)',
       }, fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         playfair: ['Playfair Display', 'serif'],

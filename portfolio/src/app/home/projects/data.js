@@ -70,7 +70,7 @@ export const urldata = {
 
 export const oneStream = {
     "mainUrl": urldata.oneStream.images.mainUrl ? urldata.oneStream.images.mainUrl : null,
-    introduction: "OneStream",
+    "title": "OneStream",
     description: "OneStream is a cutting-edge content management tool meticulously crafted to streamline the creation, editing, and publication of high-quality videos across diverse digital platforms.",
     tags: ['OneStream', 'Next.js', 'Appwrite', 'Clerk', 'AWS S3', 'YouTube API'],
 
