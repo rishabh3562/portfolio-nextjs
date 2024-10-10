@@ -150,13 +150,14 @@ const MyComponent = () => {
         <div className="item item3">
           <p className="title">Projects</p>
           <Link href="your-target-page.html" className="arrow-btn">
-            <Image
+          <Image
               className="arrow"
               src={BlackArrowImage}
               alt="black arrow here"
               width={30}
               height={30}
-            />
+            />  
+      
           </Link>
           <Image
             className="bharat_chauhan_img"
@@ -217,8 +218,10 @@ const MyComponent = () => {
           </p>
         </div>
 
-        <div className="item item5">
-        <Link href="/home/contact">
+        <Link href="/home/contact"className="item item5">
+        <div >
+         
+     
           <Image
             src={WhiteArrowImage}
             alt="arrow image"
@@ -233,8 +236,8 @@ const MyComponent = () => {
         
             Contact <span>me</span>
           </p>
-            </Link>
         </div>
+            </Link>
 
         <div className="item item6">
           <p>
