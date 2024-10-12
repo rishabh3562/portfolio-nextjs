@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Oval } from "react-loader-spinner";
+
+import CustomToast from "@/components/v1/CustomToast";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +14,7 @@ const ContactForm = () => {
     to_name: "Rishabh", // Recipient name (static or dynamic)
   });
   const [loading, setLoading] = useState(false); // Loading state
+  const [showToast, setShowToast] = useState({ show: false, message: "" });
 
   const handleChange = (e) => {
     setFormData({
@@ -42,24 +43,23 @@ const ContactForm = () => {
       )
       .then(
         (result) => {
-          // console.log(result.text);
-          toast.success("Message sent successfully!"); // Show success toast
+          setShowToast({ show: true, message: "Message sent successfully !" }); // Trigger success toast
           setFormData({ user_name: "", user_email: "", message: "" }); // Clear form
         },
         (error) => {
-          // console.log(error.text);
-          toast.error("Failed to send message.");
+          setShowToast({ show: true, message: "Failed to send message." }); // Trigger error toast
         }
       )
       .finally(() => {
         setLoading(false); // Reset loading state
+        setTimeout(() => setShowToast({ show: false, message: "" }), 3000); // Hide toast after 3 seconds
       });
   };
 
   return (
-    <div className="bg-bgColor min-h-screen flex items-center justify-center sm::p-5">
+    <div className="bg-bgColor min-h-screen flex items-center justify-center sm:p-5">
       <div className="bg-lightDark p-4 sm:p-8 rounded-lg w-full md:max-w-2xl shadow-2xl">
-        <h1 className="text-primaryColor text-3xl font-playfair mb-4 text-center">
+        <h1 className="text-primaryColor text-3xl font-poppins mb-4 text-center">
           Contact Us
         </h1>
         <form onSubmit={sendEmail}>
@@ -92,7 +92,7 @@ const ContactForm = () => {
               onChange={handleChange}
               placeholder="Your Message"
               required
-              className="w-full p-3 h-64 bg-darkDark text-white rounded-md focus:outline-none focus:ring-2 focus:ring-primaryColor" // Increased height to h-64
+              className="w-full p-3 h-64 bg-darkDark text-white rounded-md focus:outline-none focus:ring-2 focus:ring-primaryColor"
             />
           </div>
           <button
@@ -122,7 +122,13 @@ const ContactForm = () => {
             )}
           </button>
         </form>
-        <ToastContainer /> {/* Toast container for notifications */}
+
+        {/* Custom Toast */}
+        <CustomToast
+          message={showToast.message}
+          show={showToast.show}
+          onClose={() => setShowToast({ show: false, message: "" })}
+        />
       </div>
     </div>
   );

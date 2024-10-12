@@ -6,6 +6,12 @@
 * {
   @apply box-border m-0 p-0;
 }
+/* style.css */
+.highlight {
+  outline: 3px solid rgba(255, 165, 0, 0.8); /* Example: Orange outline */
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.5); /* Soft orange shadow */
+}
+
 :root {
   --primaryColor: #d0bca0;
   --bgColor: #3e3d38;

@@ -8,34 +8,50 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryColor: 'var(--primaryColor)',//muted gold
+        primaryColor: "var(--primaryColor)", //muted gold
         // secondaryColor: 'var(--secondaryColor)',//dusty rose
-        tertiaryColor: 'var(--tertiaryColor)',//muted brown
-        bgColor: 'var(--bgColor)',
-        lightDark: 'var(--lightDark)',
-        darkDark: 'var(--darkDark)',
-      }, fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        playfair: ['Playfair Display', 'serif'],
-        bodoni: ['Bodoni Moda', 'serif'],
-        beathney: ['Breathney', 'serif'],
-      }, screens: {
-
-        'xs': { 'min': '375px' },
+        tertiaryColor: "var(--tertiaryColor)", //muted brown
+        bgColor: "var(--bgColor)",
+        lightDark: "var(--lightDark)",
+        darkDark: "var(--darkDark)",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
+        bodoni: ["Bodoni Moda", "serif"],
+        beathney: ["Breathney", "serif"],
+      },
+      screens: {
+        xs: { min: "375px" },
         // => @media (min-width: 375px) { ... }
-      }, gridTemplateColumns: {
+      },
+      gridTemplateColumns: {
         // Custom column definition for 16 equal columns
-        '16': 'repeat(16, 1fr)',
+        16: "repeat(16, 1fr)",
       },
       gridTemplateRows: {
         // Custom row definition for 16 equal rows
-        '16': 'repeat(16, 1fr)',
+        16: "repeat(16, 1fr)",
       },
     },
   },
+  keyframes: {
+    fadeIn: {
+      "0%": { opacity: "0" },
+      "100%": { opacity: "1" },
+    },
+    slideIn: {
+      "0%": { transform: "translateX(100%)", opacity: "0" }, // Start off-screen and transparent
+      "100%": { transform: "translateX(0)", opacity: "1" }, // Slide into view and become fully visible
+    },
+  },
+  animation: {
+    fadeIn: "fadeIn 0.5s ease-in-out",
+    slideIn: 'slideIn 0.5s ease-out',// Smooth sliding animation
+  },
   plugins: [],
 };
-// extend: {
+
 //   colors: {
 //     background: "var(--background)",
 //     foreground: "var(--foreground)",

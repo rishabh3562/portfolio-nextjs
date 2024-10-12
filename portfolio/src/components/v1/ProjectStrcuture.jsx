@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import {
   FaGithub,
   FaLinkedin,
@@ -15,7 +15,8 @@ import Image from "next/image";
 import { GoLink } from "react-icons/go";
 import projectImage from "@/assets/bharat_chauhan_brown.jpg"; // Adjust paths if necessary
 import flowImage from "@/assets/bharat_chauhan_brown.jpg"; // Update with the correct path
-
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 const SectionSeparator = () => <hr className="mt-4 mb-4 border-primaryColor opacity-65" />;
 
 const handleCopy = (text) => {
@@ -218,12 +219,32 @@ const HeaderSection = ({ project, urlData }) => {
 };
 
 const ProjectCard = ({ project, urlData }) => {
+  const projectRef = useRef(null);
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        projectRef.current,
+        { opacity: 0, y: 50 }, // Initial state
+        {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: projectRef.current,
+            start: "top 80%", // Trigger animation when the element reaches 80% from the top
+            toggleActions: "play none none reverse", // Play animation on scroll
+          },
+        }
+      );
+    }, projectRef); // Scoping to this component
+
+    return () => ctx.revert(); // Cleanup on unmount
+  }, []);
   return (
     <div className="bg-darkDark w-full h-full">
-   <div className="mx-auto p-6 md:w-3/4 lg:w-2/3 xl:w-1/2 text-white">
+   <div  ref={projectRef} className="mx-auto p-6 md:w-3/4 lg:w-2/3 xl:w-1/2 text-white">
         <HeaderSection project={project} urlData={urlData} />
         {project.introduction && (
-          <DynamicSection title="Introduction">
+          <DynamicSection  title="Introduction">
              {project.mainUrl && (
           <Image
           src={project.mainUrl}

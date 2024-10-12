@@ -1,10 +1,11 @@
 // components/MyComponent.js
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import gsap from "gsap";
+import { useGSAP } from '@gsap/react';
 import "./style.css"; // Import your CSS file here
 import MobileImage from "@/assets/ecell2.jpg";
 import tableImage from "@/assets/ecell2.jpg";
@@ -21,18 +22,77 @@ import {
   FaTimes,
   FaBars,
 } from "react-icons/fa";
-
 export const jokes = [
   {
     question: `How many programmers does it take to change a light bulb?`,
     answer: `None. It’s a "hardware" problem!`,
   },
-  // ... (other jokes)
+  {
+    question: `Why do programmers hate nature?`,
+    answer: `Because it has too many "bugs"!`,
+  },
+  {
+    question: `Why did the programmer go broke?`,
+    answer: `Because he lost his "domain" in a bet!`,
+  },
+  {
+    question: `Why did the developer refuse to leave the house?`,
+    answer: `He was stuck in an "infinite loop"!`,
+  },
+  {
+    question: `Why did the developer go broke?`,
+    answer: `Because he used up all his "cache"!`,
+  },
+  {
+    question: `How did the developer get kicked out of the bar?`,
+    answer: `Because he kept trying to "commit" after every drink!`,
+  },
+  {
+    question: `Why did the SQL query break up with the NoSQL database?`,
+    answer: `It couldn't "join" the conversation!`,
+  },
+  {
+    question: `Why did the web developer break up with his girlfriend?`,
+    answer: `she had too many "dependencies" !`,
+  },
+  {
+    question: `What do you call a group of eight hobbits?`,
+    answer: `A hobbyte!`,
+  },
+  {
+    question: `Why did the computer keep freezing?`,
+    answer: `Because it left its "Windows" open!`,
+  },
 ];
 
-const MyComponent = () => {
-  const [jokeIndex, setJokeIndex] = useState(0);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  return (
+    <nav>
+      <ul className="nav-bar">
+        <li className="logo">
+          <Link href="/home" className="flex">
+            <p>Rishabh</p>
+            <span>Dubey</span>
+          </Link>
+        </li>
+       
+      </ul>
+    </nav>
+  );
+};
+
+
+
+const MyComponent = () => {
+  gsap.registerPlugin(useGSAP);
+  const [jokeIndex, setJokeIndex] = useState(0);
+  const navBarRef = useRef(null);
   // Function to handle joke change
   const handleNextJoke = () => {
     setJokeIndex((jokeIndex + 1) % jokes.length);
@@ -46,89 +106,62 @@ const MyComponent = () => {
     jokes[jokeIndex].answer ? jokes[jokeIndex].answer : jokes[0].answer
   );
 
-  useEffect(() => {
-    // Set up the timeline and animate elements
-    const tl = gsap.timeline();
+useEffect(() => {
+  // Set up the timeline and animate elements
+  const tl = gsap.timeline();
 
-    // Animate navigation bar
-    tl.fromTo(
-      ".nav-bar",
+  // Animate navigation bar
+  tl.fromTo(
+    ".nav-bar",
+    { opacity: 0, y: -50 },
+    { opacity: 1, y: 0, duration: 0.3, stagger: 0.2 }
+  )
+    .fromTo(
+      "#jokeCard",
       { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 0.3, stagger: 0.2 }
+      { opacity: 1, y: 0, duration: 0.5 }
     )
-      .fromTo(
-        "#jokeCard",
-        { opacity: 0, y: -50 },
-        { opacity: 1, y: 0, duration: 0.5 }
-      )
-      .fromTo(
-        ".item",
-        { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, stagger: 0.2, duration: 0.5 }
-      )
-      .fromTo(
-        ".title",
-        { x: -100, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5 }
-      )
-      .fromTo(
-        ".music",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }
-      )
-      .fromTo(
-        ".questions",
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5 }
-      );
+    .fromTo(
+      ".item",
+      { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, stagger: 0.2, duration: 0.5 }
+    )
+    .fromTo(
+      ".title",
+      { x: -100, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.5 }
+    )
+    .fromTo(
+      ".music",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }
+    )
+    .fromTo(
+      ".questions",
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.5 }
+    );
 
-    // Additional effects on joke card hover
-    const cardFront = document.querySelector(".card-front");
-    const cardBack = document.querySelector(".card-back");
+  // Additional effects on joke card hover
+  const cardFront = document.querySelector(".card-front");
+  const cardBack = document.querySelector(".card-back");
 
-    cardFront.addEventListener("mouseenter", () => {
-      gsap.to(cardFront, { scale: 1.05, duration: 0.3 });
-      gsap.to(cardBack, { scale: 1.05, duration: 0.3 });
-    });
+  cardFront.addEventListener("mouseenter", () => {
+    gsap.to(cardFront, { scale: 1.05, duration: 0.3 });
+    gsap.to(cardBack, { scale: 1.05, duration: 0.3 });
+  });
 
-    cardFront.addEventListener("mouseleave", () => {
-      gsap.to(cardFront, { scale: 1, duration: 0.3 });
-      gsap.to(cardBack, { scale: 1, duration: 0.3 });
-    });
+  cardFront.addEventListener("mouseleave", () => {
+    gsap.to(cardFront, { scale: 1, duration: 0.3 });
+    gsap.to(cardBack, { scale: 1, duration: 0.3 });
+  });
 
-    return () => tl.kill(); // Cleanup the timeline on unmount
-  }, [jokeIndex]);
+  return () => tl.kill(); // Cleanup the timeline on unmount
+}, [jokeIndex]);
 
   return (
     <div className="">
-      <nav>
-        <ul className="nav-bar">
-          <li className="logo">
-            <Link href="/home" className="flex">
-              <p>Rishabh</p>
-              <span>Dubey</span>
-            </Link>
-          </li>
-          <input type="checkbox" id="check" />
-          <span className="menu">
-            <li>
-              <Link href="#">About</Link>
-            </li>
-            <li>
-              <Link href="#">Projects</Link>
-            </li>
-            <li>
-              <Link href="#">Contact</Link>
-            </li>
-            <label htmlFor="check" className="close-menu">
-              <FaTimes />
-            </label>
-          </span>
-          <label htmlFor="check" className="open-menu">
-            <FaBars />
-          </label>
-        </ul>
-      </nav>
+  <Navbar/>
 
       <div className="v1-container">
         <div className="item item1">
