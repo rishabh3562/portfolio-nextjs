@@ -1,5 +1,5 @@
 const mainShrartext = `Hey, I wanted to share something cool with you!`;
-const mainPortfolioUrl = "https://rishabhdubey108.vercel.app/home";
+const mainPortfolioUrl = "https://dubeyrishabh108.vercel.app/home";
 export const urldata = {
     oneStream: {
         portfolioUrl: mainPortfolioUrl,
