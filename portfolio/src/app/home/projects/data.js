@@ -12,7 +12,7 @@ export const urldata = {
                 feature4: null,
             }
         },
-        postLink: "https://rishabhdubey108.vercel.app/home/projects/onestream",
+        postLink: mainPortfolioUrl+"/projects/onestream",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/oneStream",
         liveLink: null,
@@ -26,7 +26,7 @@ export const urldata = {
                 feature1: null, feature2: null, feature3: null, feature4: null
             }
         },
-        postLink: "https://rishabhdubey108.vercel.app/home/projects/collabwrite",
+        postLink: mainPortfolioUrl+"/projects/collabwrite",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/collab-tool",
         liveLink: 'https://collaboration-tool.vercel.app/',
@@ -43,7 +43,7 @@ export const urldata = {
                 feature4: null,
             }
         },
-        postLink: "https://rishabhdubey108.vercel.app/home/projects/codenote",
+        postLink: mainPortfolioUrl+"/projects/codenote",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/CodeNote",
         liveLink: null,
@@ -60,7 +60,7 @@ export const urldata = {
                 feature4: null,
             }
         },
-        postLink: "https://rishabhdubey108.vercel.app/home/projects/unihub",
+        postLink: mainPortfolioUrl+"/projects/unihub",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/UniHub",
         liveLink: 'https://unihub108.netlify.app/',
