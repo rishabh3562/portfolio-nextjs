@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { articles } from "@/app/(v1)/data/article";
 import ArticleHeader from "@/components/v1/ArticleHeader";
 import Breadcrumb from "@/components/v1/Breadcrumb";
-import BackButton from "@/components/v1/BackButton";
+
 import ArticleContent from "@/components/v1/ArticleContent";
 import { generateBreadcrumbs } from "@/utils/generateBreadcrumb"; // import utility
 import Mylayout from "@/components/v1/Mylayout";
