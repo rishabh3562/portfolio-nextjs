@@ -1,12 +1,13 @@
 // components/MyComponent.js
 "use client";
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import gsap from "gsap";
-import { useGSAP } from '@gsap/react';
-import "./style.css"; // Import your CSS file here
+import { useGSAP } from "@gsap/react";
+import "@/app/(v1)/style.css"; // Import your CSS file here
+import Navbar from "@/components/v1/Navbar";
 import MobileImage from "@/assets/ecell2.jpg";
 import tableImage from "@/assets/ecell2.jpg";
 import circleImage from "@/assets/circle_two.png"; // Correctly import the image
@@ -65,30 +66,6 @@ export const jokes = [
   },
 ];
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
-  return (
-    <nav>
-      <ul className="nav-bar">
-        <li className="logo">
-          <Link href="/home" className="flex">
-            <p>Rishabh</p>
-            <span>Dubey</span>
-          </Link>
-        </li>
-       
-      </ul>
-    </nav>
-  );
-};
-
-
-
 const MyComponent = () => {
   gsap.registerPlugin(useGSAP);
   const [jokeIndex, setJokeIndex] = useState(0);
@@ -106,62 +83,62 @@ const MyComponent = () => {
     jokes[jokeIndex].answer ? jokes[jokeIndex].answer : jokes[0].answer
   );
 
-useEffect(() => {
-  // Set up the timeline and animate elements
-  const tl = gsap.timeline();
+  useEffect(() => {
+    // Set up the timeline and animate elements
+    const tl = gsap.timeline();
 
-  // Animate navigation bar
-  tl.fromTo(
-    ".nav-bar",
-    { opacity: 0, y: -50 },
-    { opacity: 1, y: 0, duration: 0.3, stagger: 0.2 }
-  )
-    .fromTo(
-      "#jokeCard",
+    // Animate navigation bar
+    tl.fromTo(
+      ".nav-bar",
       { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 0.5 }
+      { opacity: 1, y: 0, duration: 0.3, stagger: 0.2 }
     )
-    .fromTo(
-      ".item",
-      { opacity: 0, scale: 0.8 },
-      { opacity: 1, scale: 1, stagger: 0.2, duration: 0.5 }
-    )
-    .fromTo(
-      ".title",
-      { x: -100, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.5 }
-    )
-    .fromTo(
-      ".music",
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }
-    )
-    .fromTo(
-      ".questions",
-      { scale: 0, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.5 }
-    );
+      .fromTo(
+        "#jokeCard",
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 0.5 }
+      )
+      .fromTo(
+        ".item",
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, stagger: 0.2, duration: 0.5 }
+      )
+      .fromTo(
+        ".title",
+        { x: -100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5 }
+      )
+      .fromTo(
+        ".music",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }
+      )
+      .fromTo(
+        ".questions",
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5 }
+      );
 
-  // Additional effects on joke card hover
-  const cardFront = document.querySelector(".card-front");
-  const cardBack = document.querySelector(".card-back");
+    // Additional effects on joke card hover
+    const cardFront = document.querySelector(".card-front");
+    const cardBack = document.querySelector(".card-back");
 
-  cardFront.addEventListener("mouseenter", () => {
-    gsap.to(cardFront, { scale: 1.05, duration: 0.3 });
-    gsap.to(cardBack, { scale: 1.05, duration: 0.3 });
-  });
+    cardFront.addEventListener("mouseenter", () => {
+      gsap.to(cardFront, { scale: 1.05, duration: 0.3 });
+      gsap.to(cardBack, { scale: 1.05, duration: 0.3 });
+    });
 
-  cardFront.addEventListener("mouseleave", () => {
-    gsap.to(cardFront, { scale: 1, duration: 0.3 });
-    gsap.to(cardBack, { scale: 1, duration: 0.3 });
-  });
+    cardFront.addEventListener("mouseleave", () => {
+      gsap.to(cardFront, { scale: 1, duration: 0.3 });
+      gsap.to(cardBack, { scale: 1, duration: 0.3 });
+    });
 
-  return () => tl.kill(); // Cleanup the timeline on unmount
-}, [jokeIndex]);
+    return () => tl.kill(); // Cleanup the timeline on unmount
+  }, [jokeIndex]);
 
   return (
     <div className="">
-  <Navbar/>
+      <Navbar />
 
       <div className="v1-container">
         <div className="item item1">
@@ -219,19 +196,19 @@ useEffect(() => {
           />
           <hr className="line" />
           <p className="music">
-            <Link href="/home/projects/onestream" target="_blank">
+            <Link href="/projects/onestream" target="_blank">
               One Stream
             </Link>
           </p>
           <hr className="line" />
           <p className="music">
-            <Link href="/home/projects/unihub" target="_blank">
+            <Link href="/projects/unihub" target="_blank">
               Unihub
             </Link>
           </p>
           <hr className="line" />
           <p className="music">
-            <Link href="/home/projects/codenote" target="_blank">
+            <Link href="/projects/codenote" target="_blank">
               CodeNote
             </Link>
           </p>
@@ -255,7 +232,7 @@ useEffect(() => {
           </p>
         </div>
 
-        <Link href="/home/contact" className="item item5">
+        <Link href="/contact" className="item item5">
           <div>
             <Image
               src={WhiteArrowImage}

@@ -24,6 +24,13 @@ module.exports = {
       screens: {
         xs: { min: "375px" },
         // => @media (min-width: 375px) { ... }
+      }, fontSize: {
+        'heading-xl': '3rem',   // Large heading font size
+        'heading-lg': '2rem',    // Medium heading font size
+        'body': '1rem',          // Body text font size
+      },
+      letterSpacing: {
+        'heading': '0.05em',     // Slight letter spacing for headings
       },
       gridTemplateColumns: {
         // Custom column definition for 16 equal columns

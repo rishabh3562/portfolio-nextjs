@@ -16,7 +16,7 @@ const geistMono = localFont({
 export const metadata = {
   title: "Rishabh Dubey Portfolio",
   description: "Showcasing my projects and skills.",
- 
+
 };
 
 export default function RootLayout({ children }) {
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/favicon.png" />
-      
+
         <meta name="description" content={metadata.description} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased `}>

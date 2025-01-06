@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['cdn.hashnode.com', "github.com", "res.cloudinary.com","collection.cloudinary.com"], // Specify the allowed domains here
+        domains: ['cdn.hashnode.com', "github.com", "res.cloudinary.com", "collection.cloudinary.com", "source.unsplash.com", "detroitseocompany.com", "miro.medium.com"], // Specify the allowed domains here
     },
 };
 

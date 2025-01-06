@@ -11,15 +11,6 @@
   src: url("./fonts/Breathney Demo.ttf");
 }
 
-:root {
-  --primaryColor: #d0bca0; /* Light beige */
-  --secondaryColor: #d19a9a; /* Light red */
-  --bgColor: #3e3d38; /* Dark gray */
-  --darkDark: #1e201e; /* Almost black */
-  --lightDark: #3c3d37; /* Darker gray */
-  --tertiaryColor: #7d7d7d; /* Gray */
-}
-/* Custom Scrollbar Styles */
 
 
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState,useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   FaGithub,
   FaLinkedin,
@@ -17,11 +17,16 @@ import projectImage from "@/assets/bharat_chauhan_brown.jpg"; // Adjust paths if
 import flowImage from "@/assets/bharat_chauhan_brown.jpg"; // Update with the correct path
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-const SectionSeparator = () => <hr className="mt-4 mb-4 border-primaryColor opacity-65" />;
+import Divider from "@/components/v1/Divider";
+import Navbar from "@/components/v1/Navbar";
+import Layout from "./Mylayout";
+import Breadcrumb from "./Breadcrumb";
+const SectionSeparator = () => (
+  <hr className="mt-4 mb-4 border-primaryColor opacity-65" />
+);
 
 const handleCopy = (text) => {
   navigator.clipboard.writeText(text);
-
 };
 
 const DropDown = ({ urlData }) => (
@@ -55,10 +60,10 @@ const DropDown = ({ urlData }) => (
   </ul>
 );
 
-const handleShare = (platform, urlData) => {
-    const text = urlData?.shareText || "Check out this post:";
-    
-    const shareMessage = Object.entries(urlData)
+ export const handleShare = (platform, urlData) => {
+  const text = urlData?.shareText || "Check out this post:";
+
+  const shareMessage = Object.entries(urlData)
     .filter(([_, value]) => value)
     .map(([key, value]) => {
       switch (key) {
@@ -75,18 +80,18 @@ const handleShare = (platform, urlData) => {
       }
     })
     .join("\n");
-  
-    const message = encodeURIComponent(`${text}\n\n${shareMessage}`);
-    
-    const shareUrl =
-      platform === "telegram"
-        ? `https://t.me/share/url?url=${encodeURIComponent(urlData.liveLink)}&text=${message}`
-        : `https://api.whatsapp.com/send?text=${message}`; // WhatsApp URL
-  
-    window.open(shareUrl, "_blank");
-  };
-  
-const Divider = () => <hr className="my-6 border-gray-600 opacity-50" />;
+
+  const message = encodeURIComponent(`${text}\n\n${shareMessage}`);
+
+  const shareUrl =
+    platform === "telegram"
+      ? `https://t.me/share/url?url=${encodeURIComponent(
+          urlData.liveLink
+        )}&text=${message}`
+      : `https://api.whatsapp.com/send?text=${message}`; // WhatsApp URL
+
+  window.open(shareUrl, "_blank");
+};
 
 const DynamicSection = ({ title, children }) => (
   <>
@@ -98,34 +103,38 @@ const DynamicSection = ({ title, children }) => (
   </>
 );
 
-const FeatureItem = ({ title, description,url }) => (
+const FeatureItem = ({ title, description, url }) => (
   <div className="feature-item mb-4">
     <h3 className="text-lg font-semibold text-primaryColor">{title}</h3>
-   
-  {url.link && (
-     <Image 
-     src={url.link} 
-     alt="Feature image"  
- width={1000}
-     height={100} 
-     style={{ width: '100%', height: 'auto' }} 
-     className='rounded-xl my-4 object-cover' 
-   />
-  )}
+
+    {url.link && (
+      <Image
+        src={url.link}
+        alt="Feature image"
+        width={1000}
+        height={100}
+        style={{ width: "100%", height: "auto" }}
+        className="rounded-xl my-4 object-cover"
+      />
+    )}
     <p className="text-tertiaryColor">{description}</p>
   </div>
 );
 
 const FeaturesList = ({ features }) => (
   <section className="features-section ">
-   
     <div className="features">
       {features.map((feature, index) => (
-        <FeatureItem 
-          key={index} 
-          title={feature.title} 
-          description={feature.description} 
-          url={feature.image?feature.image:{link:"",description:"",width:1000,height:1000}}        />
+        <FeatureItem
+          key={index}
+          title={feature.title}
+          description={feature.description}
+          url={
+            feature.image
+              ? feature.image
+              : { link: "", description: "", width: 1000, height: 1000 }
+          }
+        />
       ))}
     </div>
   </section>
@@ -150,7 +159,7 @@ const HeaderSection = ({ project, urlData }) => {
       <Image
         src={projectImage}
         alt="Project Header"
-        className="w-full h-72 rounded-xl mb-4 object-cover"
+        className="w-full h-72 rounded-xl mb-4 object-cover object-top"
       />
       <h1 className="text-4xl font-bold mb-2 text-primaryColor">
         {project.title}
@@ -186,7 +195,7 @@ const HeaderSection = ({ project, urlData }) => {
         </div>
         <div className="relative">
           <div className="flex gap-2 items-center">
-            {urlData.githubUrl  && (
+            {urlData.githubUrl && (
               <FaGithub
                 onClick={() => window.open(urlData.githubUrl, "_blank")}
                 className="cursor-pointer text-primaryColor transition-all ease-in"
@@ -220,6 +229,14 @@ const HeaderSection = ({ project, urlData }) => {
 
 const ProjectCard = ({ project, urlData }) => {
   const projectRef = useRef(null);
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Projects", href: "/projects" },
+    {
+      label: project.title,
+      href: `/projects/${project.title.replace(/\s+/g, "-").toLowerCase()}`,
+    }, // Dynamic link for project
+  ];
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -239,123 +256,138 @@ const ProjectCard = ({ project, urlData }) => {
 
     return () => ctx.revert(); // Cleanup on unmount
   }, []);
+
   return (
-    <div className="bg-darkDark w-full h-full">
-   <div  ref={projectRef} className="mx-auto p-6 md:w-3/4 lg:w-2/3 xl:w-1/2 text-white">
-        <HeaderSection project={project} urlData={urlData} />
-        {project.introduction && (
-          <DynamicSection  title="Introduction">
-             {project.mainUrl && (
-          <Image
-          src={project.mainUrl}
-          width={1000}
-          height={100}
-          alt="Project Header"
+    <Layout type="projects" breadcrumbItems={breadcrumbItems}>
+      <div className="bg-darkDark w-full h-full">
+        <div
+          ref={projectRef}
+          className="mx-auto p-6 md:w-3/4 lg:w-3/4 xl:w-3/4 text-white"
+        >
+          <Breadcrumb items={breadcrumbItems} />
+          <HeaderSection project={project} urlData={urlData} />
+          {project.introduction && (
+            <DynamicSection title="Introduction">
+              {project.mainUrl && (
+                <Image
+                  src={project.mainUrl}
+                  width={1000}
+                  height={100}
+                  alt="Project Header"
+                  className="w-full h-72 rounded-xl mb-4 object-fill"
+                />
+              )}
+              <p className="text-lg">{project.introduction}</p>
+            </DynamicSection>
+          )}
 
-          className="w-full h-72 rounded-xl mb-4 object-fill"
-        />
-   )}
-            <p className="text-lg">{project.introduction}</p>
-       
-          </DynamicSection>
-        )}
+          {project.techStack && project.techStack.length > 0 && (
+            <DynamicSection title="Tech Stack">
+              <ul className="list-disc list-inside">
+                {project.techStack.map((tech, index) => (
+                  <li key={index} className="text-lg">
+                    <a
+                      href={tech.link}
+                      className="text-blue-600 hover:underline"
+                    >
+                      {tech.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </DynamicSection>
+          )}
 
-        {project.techStack && project.techStack.length > 0 && (
-          <DynamicSection title="Tech Stack">
-            <ul className="list-disc list-inside">
-              {project.techStack.map((tech, index) => (
-                <li key={index} className="text-lg">
-                  <a href={tech.link} className="text-blue-600 hover:underline">
-                    {tech.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </DynamicSection>
-        )}
+          {project.features && project.features.length > 0 && (
+            <DynamicSection title="Features">
+              <FeaturesList features={project.features} />
+            </DynamicSection>
+          )}
 
-        {project.features && project.features.length > 0 && (
-          <DynamicSection title="Features">
-            <FeaturesList features={project.features} />
-          </DynamicSection>
-        )}
-
-        {project.flowImage && (
-          <DynamicSection title="The general flow of the application">
-            <Image
-              src={flowImage}
-              alt="Application Flow"
-              className="w-full h-64 rounded-xl mb-4 object-cover"
-            />
-          </DynamicSection>
-        )}
-        
-        {project.flowImage && (
-          <>
+          {project.flowImage && (
             <DynamicSection title="The general flow of the application">
               <Image
                 src={flowImage}
                 alt="Application Flow"
-                className="w-full h-auto mb-4"
+                className="w-full h-64 rounded-xl mb-4 object-cover"
               />
             </DynamicSection>
-            <SectionSeparator />
-          </>
-        )}
+          )}
 
-        {project.challenges && project.challenges.length > 0 && (
-          <>
-            <DynamicSection title="Challenges we faced">
-               <FeaturesList features={project.challenges} />
-            </DynamicSection>
-           
-          </>
-        )}
-{project.usage && project.usage.length > 0 && (
-       <>
-       <DynamicSection title="Usage">
-          <FeaturesList features={project.usage} />
-       </DynamicSection>
-      
-     </>
-)}
-    
+          {project.flowImage && (
+            <>
+              <DynamicSection title="The general flow of the application">
+                <Image
+                  src={flowImage}
+                  alt="Application Flow"
+                  className="w-full h-auto mb-4"
+                />
+              </DynamicSection>
+              <SectionSeparator />
+            </>
+          )}
 
-        {project.videoDemo && (
-          <>
-            <DynamicSection title="Video demo">
-              <p>
-                Here's a speedrun:{" "}
-                <a
-                  href={project.videoDemo}
-                  className="text-blue-600 hover:underline"
-                >
-                  {project.videoDemo}
-                </a>
-              </p>
-            </DynamicSection>
-            <SectionSeparator />
-          </>
-        )}
+          {project.challenges && project.challenges.length > 0 && (
+            <>
+              <DynamicSection title="Challenges we faced">
+                <FeaturesList features={project.challenges} />
+              </DynamicSection>
+            </>
+          )}
+          {project.usage && project.usage.length > 0 && (
+            <>
+              <DynamicSection title="Usage">
+                <FeaturesList features={project.usage} />
+              </DynamicSection>
+            </>
+          )}
 
-        {(project.conclusion || project.license|| project.contributionGuidelines) && (
-          <>
-            <DynamicSection title="Conclusion">
-                 <ul className="list-disc list-inside">
-        {project.contributionGuidelines && <li><>{project.contributionGuidelines}</></li>}
-        {project.conclusion && <li><>{project.conclusion}</></li>}
-        {project.license && <li><>{project.license}</></li>}
- 
-        </ul>
-          
-            </DynamicSection>
-           
-          </>
-        )}
+          {project.videoDemo && (
+            <>
+              <DynamicSection title="Video demo">
+                <p>
+                  Here's a speedrun:{" "}
+                  <a
+                    href={project.videoDemo}
+                    className="text-blue-600 hover:underline"
+                  >
+                    {project.videoDemo}
+                  </a>
+                </p>
+              </DynamicSection>
+              <SectionSeparator />
+            </>
+          )}
+
+          {(project.conclusion ||
+            project.license ||
+            project.contributionGuidelines) && (
+            <>
+              <DynamicSection title="Conclusion">
+                <ul className="list-disc list-inside">
+                  {project.contributionGuidelines && (
+                    <li>
+                      <>{project.contributionGuidelines}</>
+                    </li>
+                  )}
+                  {project.conclusion && (
+                    <li>
+                      <>{project.conclusion}</>
+                    </li>
+                  )}
+                  {project.license && (
+                    <li>
+                      <>{project.license}</>
+                    </li>
+                  )}
+                </ul>
+              </DynamicSection>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
 export default ProjectCard;
-

@@ -12,12 +12,20 @@
   box-shadow: 0 0 15px rgba(255, 165, 0, 0.5); /* Soft orange shadow */
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap");
+
 :root {
-  --primaryColor: #d0bca0;
-  --bgColor: #3e3d38;
-  --lightDark: #3c3d37;
-  --darkDark: #1e201e;
+  --primaryColor: #d0bca0; /* Light beige */
+  --secondaryColor: #d19a9a; /* Light red */
+  --bgColor: #3e3d38; /* Dark gray */
+  --darkDark: #1e201e; /* Almost black */
+  --lightDark: #3c3d37; /* Darker gray */
+  --tertiaryColor: #7d7d7d; /* Gray */
 }
+/* Custom Scrollbar Styles */
+
 body {
   @apply bg-[color:var(--darkDark)];
 

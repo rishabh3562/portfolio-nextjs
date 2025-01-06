@@ -1,5 +1,5 @@
 const mainShrartext = `Hey, I wanted to share something cool with you!`;
-const mainPortfolioUrl = "https://dubeyrishabh108.vercel.app/home";
+const mainPortfolioUrl = "https://dubeyrishabh108.vercel.app/";
 export const urldata = {
     oneStream: {
         portfolioUrl: mainPortfolioUrl,
@@ -12,7 +12,7 @@ export const urldata = {
                 feature4: null,
             }
         },
-        postLink: mainPortfolioUrl+"/projects/onestream",
+        postLink: mainPortfolioUrl + "/projects/onestream",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/oneStream",
         liveLink: null,
@@ -26,10 +26,10 @@ export const urldata = {
                 feature1: null, feature2: null, feature3: null, feature4: null
             }
         },
-        postLink: mainPortfolioUrl+"/projects/collabwrite",
+        postLink: mainPortfolioUrl + "/projects/collabwrite",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/collab-tool",
-        liveLink: 'https://collaboration-tool.vercel.app/',
+        liveLink: 'https://collabtool.vercel.app/',
         videolink: null, // Added for consistency
     },
     codeNote: {
@@ -43,7 +43,7 @@ export const urldata = {
                 feature4: null,
             }
         },
-        postLink: mainPortfolioUrl+"/projects/codenote",
+        postLink: mainPortfolioUrl + "/projects/codenote",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/CodeNote",
         liveLink: null,
@@ -60,7 +60,7 @@ export const urldata = {
                 feature4: null,
             }
         },
-        postLink: mainPortfolioUrl+"/projects/unihub",
+        postLink: mainPortfolioUrl + "/projects/unihub",
         shareText: mainShrartext,
         githubUrl: "https://github.com/rishabh3562/UniHub",
         liveLink: 'https://unihub108.netlify.app/',
@@ -73,7 +73,7 @@ export const oneStream = {
     "title": "OneStream",
     description: "OneStream is a cutting-edge content management tool meticulously crafted to streamline the creation, editing, and publication of high-quality videos across diverse digital platforms.",
     tags: ['OneStream', 'Next.js', 'Appwrite', 'Clerk', 'AWS S3', 'YouTube API'],
-
+    "introduction": "OneStream is a cutting-edge content management tool meticulously crafted to streamline the creation, editing, and publication of high-quality videos across diverse digital platforms.",
     techStack: [
         {
             name: "Next.js",
@@ -325,7 +325,7 @@ export const uniHub = {
 
 export const CodeNote = {
     "mainUrl": urldata.codeNote.images.mainUrl ? urldata.codeNote.images.mainUrl : null,
-    "title": "CodeNote.ai",
+    "title": "CodeNote",
     "introduction": "CodeNote.ai is an innovative platform that revolutionizes the way developers document and understand their code. By leveraging advanced techniques like large language models through LangChain and utilizing Abstract Syntax Trees (ASTs), CodeNote.ai provides unparalleled accuracy and efficiency in generating documentation. The platform enables developers to analyze code repositories with ease, producing structured and detailed documentation that enhances collaboration and knowledge sharing. With features such as seamless repository fetching, automatic documentation generation, and context creation for AI agents, CodeNote.ai is designed to improve the coding experience, making it an essential tool for software developers and open-source contributors alike.",
     "description": "CodeNote.ai is an advanced tool designed to analyze code repositories, generate AI-powered documentation, and create context summaries for seamless code understanding. It utilizes large language models (via LangChain) and Abstract Syntax Trees (ASTs) to enhance accuracy and automation.",
     "tags": ["CodeNote.ai", "LangChain", "AST", "Node.js", "Express.js", "MongoDB", "React", "TailwindCSS"],
